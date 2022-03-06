@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 팝업배너 */
+.bnrTop {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    height: 42px;
+    background-color: rgb(95, 0, 128);
+    color: white;
+    font-size: 14px;
+}
+#closeBtn {
+    position: relative;
+    opacity: 10;
+    bottom: 26px;
+    right: 215px;
+    cursor: pointer;
+}
+a:hover, a:active {
+    text-decoration: none;
+}
+
+/* Top */
+.header {
+    width: 100%;
+    height: 110px;
+}
+.top1 {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.topMenu {
+    color: lightgray;
+    margin-right: 7px;
+}
+.bnr_delivery {
+    margin-left: 10px;
+}
+ul li {
+    list-style: none;
+    float: left;
+    position: relative;
+    margin-right: 5px;
+}
+
+/* 퀵메뉴영역 추가 */
+.login::before, .logout::before {
+    content: "│";
+    width: 1px;
+    height: 16px;
+    color: #d8d8d8;
+    padding: 0 8px 0;
+}
+.login::after, .logout::after {
+    content: "│";
+    width: 1px;
+    height: 16px;
+    color: #d8d8d8;
+    padding: 0 8px 0;
+}
+
+/* 퀵메뉴영역 */
+.join a, .myName a {  /*로그인 후 회원명클래스 추가*/
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(95, 0, 128);
+}
+.login a, 
+.memberCenter a {
+    color: #333;
+}
+.topMenu > ul > li > a:hover {
+    text-decoration: none;
+}
+.memberCenter ul {
+    position: relative;
+    left: -45px;
+}
+.memberCenter li {
+    width: 90px;
+    height: auto;
+    padding: 2px 0 4px 9px;
+    /* border: 1px solid red; */
+}
+.memberCenter a:hover {
+    text-decoration: none;
+}
+.topMenu > ul > li > ul {
+    display: none;
+}
+.topMenu > ul > li:hover > ul {
+    display: block;
+    position: absolute;
+    width: 90px;
+    height: auto;
+    margin-left: 12px;
+    margin-top: 1px;
+    border: 1px solid lightgray;
+    background-color: white;
+    z-index: 90;
+    cursor: pointer;
+}
+.top2 {
+    text-align: center;
+    /* margin-top: -15px; */
+}
+
+/* Nav */
+/* 네비 상단고정 구현 X */
+.nav {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    position: sticky; 
+    top: 0;
+}
+.nav a {
+    color: #333;
+    /* font-weight: bold; */
+    font-weight: 500;
+    font-size: 16px;
+}
+.nav > .depth1 > li:nth-child(2) > a,
+.nav > .depth1 > li:nth-child(3) > a,
+.nav > .depth1 > li:nth-child(4) > a,
+.nav > .depth1 > li:nth-child(5) > a {
+    color: rgb(95, 0, 128);
+}
+.nav > .depth1 > li:nth-child(2) > a:focus,
+.nav > .depth1 > li:nth-child(3) > a:focus,
+.nav > .depth1 > li:nth-child(4) > a:focus,
+.nav > .depth1 > li:nth-child(5) > a:focus {
+    color: rgb(95, 0, 128);
+}
+.nav > .depth1 > li:nth-child(1) > a:hover {
+    color: rgb(95, 0, 128);
+    text-decoration: none;
+}
+.nav > .depth1 > li > a:hover {
+    color: rgb(95, 0, 128);
+    text-decoration: underline;
+    text-underline-position: under;
+}
+.division {
+    margin-top: 20px;
+    height: 9px;
+    box-shadow: 0 10px 10px -10px #e9e9e9 inset;
+    opacity: 0.7;
+}
+
+/* 카테고리 depth */
+.all {
+    position: relative;
+    left: 2px;
+    margin-right: 3px;
+}
+.all img {
+    margin: 3.3px 5px 5px 0;
+}
+#menu_none {
+    position: relative;
+}
+#menu_over {
+    position: absolute;
+    top: 2.2px;
+    left: 0px;
+    display: none;
+}
+.all:hover #menu_over {
+    display: block;
+}
+.depth1 { /* nav위치조정 */
+    margin-left: 5px;
+    margin-top: 20px;
+}
+.depth1 a { /* nav 카테고리 거리조정 */
+    margin-right: 20px;
+    margin-top: 2px;
+}
+.depth1 ul li { /* 3depth 영역확대 및 포인터적용 */
+    width: 100%;  
+    height: 35px;
+    cursor: pointer; 
+}
+.depth1 ul li:hover { /* 마우스 오버 시 배경색상 변경 */
+    background-color: #eee;
+}
+.depth1 ul li:hover > a { /* 마우스 오버 시 글씨색상 변경 */
+    color: rgb(95, 0, 128); 
+}
+.depth2 { /* 안보이게하기 */
+    display: none;
+    width: 100%; 
+}
+.depth2 > li:nth-child(1) { /* depth 이어주기용 */
+    height: 12px;
+    background-color: transparent;
+}
+.depth2 > li:nth-child(1):hover { /* depth 이어주기용 */
+    background-color: transparent;
+}
+.nav > ul > li:hover .depth2 { /* 나타나기 */
+    display: block;
+    position: absolute;
+    width: 130px;
+    background-color: white;
+    z-index: 100;
+}
+.depth2 > li > a { /* depth2 꾸미기 */
+    width: 100%;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    text-decoration: none;
+    padding-top: 4px;
+    padding-left: 28px;
+    padding-bottom: 5px;
+}
+.depth3 { /* 안보이게하기 / 설정 안하면 depth1 hover시 같이나옴 */
+    display: none;
+    width: 100%;
+}
+.nav > ul > li > ul > li:hover .depth3 { /* 나타나기 */
+    display: block;
+    position: absolute;
+    width: 130px;
+    left: 130px;
+    background-color: #eee;
+    z-index: 100;
+}
+.depth3 > li > a { /* depth3 꾸미기 */
+    width: 100%;
+    height: 32px;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    text-decoration: none;
+    padding-top: 5px;
+    padding-left: 20%;
+}
+.nav > ul > li > ul > li:nth-child(2) .depth3 { /* 위치조정 */
+    top: 0px;
+}
+.nav > ul > li > ul > li:nth-child(3) .depth3 { /* 위치조정 */
+    top: -35px;
+}
+.nav > ul > li > ul > li:nth-child(4) .depth3 { /* 위치조정 */
+    top: -70px;
+}
+.nav > ul > li > ul > li:nth-child(5) .depth3 { /* 위치조정 */
+    top: -105px;
+}
+
+/* 검색창 */
+.nav > .search {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#inputText {
+    width: 240px;
+    height: 30px;
+    padding-left: 15px;
+
+    border-radius: 50px;
+    border: none;
+    background-color: #eee;
+    font-size: 12px;
+}
+#inputText:focus {
+    outline-style: none;
+    border: 2px solid #eee;
+    background-color: white;
+}
+#delBtn {
+    position: relative;
+    top: -2.5px;
+    left: -60px;
+    border: none;
+    background-color: transparent;
+}
+#searchBtn {
+    position: relative;
+    left: -50px;
+    opacity: 0.8;
+}
+
+/* 아이콘 */
+.event {
+    position: relative;
+    left: -20px;
+    opacity: 0.95;
+}
+.cart {
+    position: relative;
+    left: -10px;
+}
+.mypage {
+    position: relative;
+    opacity: 0.95;
+}

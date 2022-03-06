@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+}
+a{
+  text-decoration: none;
+}
+
+/* 서브페이지 타이틀 */
+.subTitle{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+
+/* 페이지네이션 -start */
+.pagination {
+    width: 100%;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+}
+.pagination:focus {
+    color: rgb(95, 0, 128);
+    text-decoration: none;
+    background-color: rgba(228, 228, 228, 0.4);
+}
+.pagination a {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    /* border: 1px solid rgba(228, 228, 228); */
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(200, 200, 200);
+    border-right: 1px solid rgb(200, 200, 200);
+    border-left: 1px solid rgb(200, 200, 200);
+    margin-left: -1px;
+}
+.pagination a:hover {
+    color: rgb(95, 0, 128);
+    text-decoration: none;
+    background-color: rgba(228, 228, 228, 0.4);
+}
+.pagination a.active {
+    background-color: rgba(228, 228, 228, 0.4);
+    color: rgb(95, 0, 128);
+}
+
+    /*pagenation 코딩소스-start
+    <div class="pagination">
+        <a href="#"><<</a>
+        <a href="#"><</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">></a>
+        <a href="#">>></a>
+    </div>
+    /*pagenation 코딩소스-end
+
+/* 페이지네이션 - end */  
+
+/* 아코디언 */
+.accodion_tit {
+  color: #666;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accodion_tit:hover{
+  color: rgb(95, 0, 128);
+  text-decoration: none;
+}
+
+.faq_txt {
+  color: #666;
+  text-align: left;
+  padding: 20px 50px 50px 20px;
+}
+
+  
+
+/* checkbox */
+input[type=checkbox] { display:none;}
+input[type=checkbox] + label { 
+  display: inline-block;
+  cursor: pointer; 
+  line-height: 24px;
+  padding-left: 22px;
+  font-size: 12px;
+  background: url('/img/member/check_n.png') left/22px no-repeat; 
+}
+input[type=checkbox]:checked + label { 
+  background-image: url('/img/member/check_y.png'); 
+}
+
+/* radio */
+input[type=radio] { display:none; }
+input[type=radio] + label {   
+  margin-top: 15px;
+  display: inline-block; 
+  cursor: pointer; 
+  line-height: 22px; 
+  padding-left: 22px; 
+  background: url('/img/member/r_check_n.png') left/22px no-repeat; 
+}
+input[type=radio]:checked + label { 
+  background-image: url('/img/member/r_check_y.png');
+}
+
+/* 여백/정렬 */
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.padding20 {
+    padding: 20px;
+}
+.padding-left {
+    padding-left: 10px;
+}
+.padding-right {
+    padding-right: 10px;
+}
+.padding-top {
+    padding-top: 10px;
+}
+.padding-bottom {
+    padding-bottom: 10px;
+}
+.margin20 {
+    margin: 20px;
+}
+.margin-left {
+    margin-left: 10px;
+}
+.margin-right {
+    margin-right: 10px;
+}
+.margin-top {
+    margin-top: 10px;
+}
+.margin-bottom {
+    margin-bottom: 10px;
+}

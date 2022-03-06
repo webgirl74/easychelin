@@ -1,0 +1,192 @@
+#main {
+    width: 100%;
+    height: auto;
+    margin-top: -8px;
+}
+
+/* section1 */
+.section1 {
+    height: 370px;
+}
+.carousel > button {
+    margin-top: 190px;
+}
+
+/* section2 */
+.section2 {
+    margin-top: 80px;
+    position: relative;
+    /* border: 1px solid red; */
+}
+.sec2_1 {
+    width: 100%;
+    /* border: 1px solid red; */
+}
+.sec2_1 > p {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.sec2_2 > p {
+    font-size: 12px;
+    text-align: start;
+}
+.addCart {
+    position: absolute;
+    right: 30px;
+    top: 260px;
+}
+
+/* section3 */
+.section3 {
+    margin-top: 80px;
+    position: relative;
+    /* border: 1px solid red; */
+}
+.sec3_1 {
+    width: 100%;
+    /* border: 1px solid red; */
+}
+.sec3_1 > p {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.sec3_2 > p {
+    font-size: 12px;
+    text-align: start;
+}
+.addCart {
+    position: absolute;
+    right: 15px;
+    top: 260px;
+}
+
+/* 스와이프 */
+.swiper-slide {
+    /* border: 1px solid red; */
+    display:flex; /* 내용을 중앙정렬 하기위해 flex 사용 */
+    flex-flow: column;
+    align-items:center; /* 위아래 기준 중앙정렬 */
+    justify-content:center; /* 좌우 기준 중앙정렬 */
+}
+.goodsSwiperImg {
+    max-width: 250px;
+    max-height: 320px;
+    overflow: hidden;
+    position: relative;
+}
+.goodsSwiperText {
+    margin-top: 10px;
+}
+.swiper-slide img:nth-child(1) {
+    width: 100%; /*이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
+    margin-bottom: 10px; 
+    /* border: 1px solid red; */
+    transition: all 0.2s linear;
+}
+.swiper-slide img:nth-child(1):hover {
+    transform: scale(1.02, 1.02);   
+}
+.swiper-slide > div > a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+.swiper-slide > div > a > p {
+    width: 249px;
+    height: auto;
+    overflow: hidden;
+}
+.swiper-slide > div > a:hover {
+    color: #333;
+    text-decoration: none;
+}
+.price1, .sale, .salePrice {
+    font-weight: bold;
+}
+.sale {
+    color: red;
+    font-size: 16px;
+    margin-right: 8px;
+}
+.price2 {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #666;
+}
+.swiper-button-next {
+    background: url(/img/main/list_right_over.png) no-repeat;
+    background-size: 100% auto;
+    margin-top: -50px;
+}
+.swiper-button-prev {
+    background: url(/img/main/list_left_over.png) no-repeat;
+    background-size: 100% auto;
+    margin-top: -50px;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+}
+
+/* 퀵메뉴 */
+.quickMenu {
+    position: absolute;
+    width: 80px;
+    margin-top: 25%;
+    right: 20px;
+}
+.quickMenu img {
+    margin-bottom: 10px;
+}
+.quickMenu ul {
+    position: relative;
+    float: left;
+    width: 100%;
+    /* display: inline-block; */
+    display: inline;
+    border: 1px solid #eee;
+}
+.quickMenu ul li {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    /* display: inline-block; */
+    display: inline;
+}
+.quickMenu ul li a {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #333;
+    font-size: 12px;
+    background-color: #fff;
+}
+.quickMenu ul li a:hover {
+    color: rgb(95, 0, 128);
+    text-decoration: none;
+}
+.quickMenu > ul > li {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* 광고배너 */
+.adBnr {
+    position: relative;
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    right: 5px;
+}
