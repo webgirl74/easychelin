@@ -101,7 +101,7 @@
                             </a>
                             <ul class="depth2">
                                 <li>&nbsp;</li>
-                                <li><a href="/goodsList"><img src="/img/header/nav/cate_i_01.png" alt="밀키트">밀키트</a>
+                                <li><a href="/goods/goodsList"><img src="/img/header/nav/cate_i_01.png" alt="밀키트">밀키트</a>
                                     <ul class="depth3">
                                         <li><a href="#">국물류</a></li><br>
                                         <li><a href="#">파스타/면류</a></li><br>
@@ -111,7 +111,7 @@
                                         <li><a href="#">분식류</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/goodsList"><img src="/img/header/nav/cate_i_02.png" alt="신선식품">신선식품</a>
+                                <li><a href="/goods/goodsList"><img src="/img/header/nav/cate_i_02.png" alt="신선식품">신선식품</a>
                                     <ul class="depth3">
                                         <li><a href="#">육류</a></li><br>
                                         <li><a href="#">생선류</a></li><br>
@@ -121,7 +121,7 @@
                                         <li><a href="#">유제품</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/goodsList"><img src="/img/header/nav/cate_i_03.png" alt="냉동식품">냉동식품</a>
+                                <li><a href="/goods/goodsList"><img src="/img/header/nav/cate_i_03.png" alt="냉동식품">냉동식품</a>
                                     <ul class="depth3">
                                         <li><a href="#">만두</a></li><br>
                                         <li><a href="#">돈까스</a></li><br>
@@ -132,7 +132,7 @@
                                         <li><a href="#">핫도그</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/goodsList"><img src="/img/header/nav/cate_i_04.png" alt="건강식품">건강식품</a>
+                                <li><a href="/goods/goodsList"><img src="/img/header/nav/cate_i_04.png" alt="건강식품">건강식품</a>
                                     <ul class="depth3">
                                         <li><a href="#">영양제</a></li><br>
                                         <li><a href="#">다이어트</a></li><br>
@@ -145,12 +145,12 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="mealkit"><a href="/goodsList">밀키트</a></li>
-                        <li class="fresh"><a href="/goodsList">신선식품</a></li>
-                        <li class="frozen"><a href="/goodsList">냉동식품</a></li>
-                        <li class="healthy"><a href="/goodsList">건강식품</a></li>
-                        <li class="new"><a href="/goodsNewList">신상품</a></li>
-                        <li class="best"><a href="/goodsBestList">베스트상품</a></li>
+                        <li class="mealkit"><a href="/goods/goodsList">밀키트</a></li>
+                        <li class="fresh"><a href="/goods/goodsList">신선식품</a></li>
+                        <li class="frozen"><a href="/goods/goodsList">냉동식품</a></li>
+                        <li class="healthy"><a href="/goods/goodsList">건강식품</a></li>
+                        <li class="new"><a href="/goods/goodsNewList">신상품</a></li>
+                        <li class="best"><a href="/goods/goodsBestList">베스트상품</a></li>
                     </ul>
 
                                         
