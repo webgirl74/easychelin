@@ -1,0 +1,47 @@
+/* 퀵메뉴 */
+.quickMenu {
+    position: absolute;
+    width: 80px;
+    top: 38%;
+    right: 20px;
+}
+.quickMenu img {
+    margin-bottom: 10px;
+}
+.quickMenu ul {
+    position: relative;
+    float: left;
+    width: 100%;
+    /* display: inline-block; */
+    display: inline;
+    border: 1px solid #ddd;
+}
+.quickMenu ul li {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    /* display: inline-block; */
+    display: inline;
+}
+.quickMenu ul li a {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: black;
+    font-size: 12px;
+    background-color: #fff;
+}
+.quickMenu ul li a:hover {
+    color: rgb(95, 0, 128);
+    text-decoration: none;
+}
+.quickMenu > ul > li {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
