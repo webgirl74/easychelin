@@ -27,7 +27,7 @@
 <body>
 	<!-- 최근 본 상품 구현 X -->
     <div class="quickMenu">
-        <a href="#"><img src="/img/goods/bnr_quick.jpg" alt="퀵배송안내" width="80" height="auto"></a>
+        <a href="#"><img src="/img/main/bnr_quick.jpg" alt="퀵배송안내" width="80" height="auto"></a>
         <ul>
             <li><a href="javascript:callGrade();">등급별 혜택</a></li> 
             <li><a href="/customer/eventList.html?3">이벤트</a></li> 

@@ -1,6 +1,7 @@
 package com.study.springboot;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -8,9 +9,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MyController {
 	
 	@RequestMapping("/")
-	@ResponseBody
 	public String root() {
-		return "root() 함수 호출됨";
+		return "redirect:main";
 	}
+	
+	@RequestMapping("/main")
+	public String main( Model model) {
+		
+//		model.addAttribute("mainPage", "main.jsp");
+		
+		return "main"; //"index.jsp" 디스패치함.
+	}
+	
+	
 	
 }
