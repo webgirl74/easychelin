@@ -18,7 +18,7 @@ public class MyController {
 		
 //		model.addAttribute("mainPage", "main.jsp");
 		
-		return "main"; //"index.jsp" 디스패치함.
+		return "main"; //"main.jsp" 디스패치함.
 	}
 	
 	
