@@ -1,24 +1,24 @@
 --kgh
---È¸¿ø
+--íšŒì›
 drop table member;
 create table member(
-    user_idx       number(4)    primary key,    --È¸¿ø¹øÈ£
-    user_id         varchar2(20),               --È¸¿ø¾ÆÀÌµğ
-    user_pw         varchar2(30),               --È¸¿øºñ¹Ğ¹øÈ£
-    user_name       varchar2(20),               --È¸¿øÀÌ¸§
-    user_email      varchar2(100),              --È¸¿øÀÌ¸ŞÀÏ
-    user_email_receive   number(1),	            --È¸¿øÀÌ¸ŞÀÏ 0: ºñ¼ö½Å 1: ¼ö½Å
-    user_phone      varchar2(20),               --È¸¿ø¿¬¶ôÃ³
-    user_zip        varchar(7),                 --È¸¿ø¿ìÆí¹øÈ£
-    user_address    varchar2(225),              --È¸¿øÁÖ¼Ò
-    user_birth      date,                       --È¸¿ø»ıÀÏ
-    user_gender     number(1),	                --È¸¿ø¼ºº° 1: ³² 2:¿©
-    user_grade      number(1) default 0,        --È¸¿øµî±Ş 0: ÀÏ¹İ 1:vip
-    user_point      number(8) default 0,	     --È¸¿øÆ÷ÀÎÆ®
-    user_join_date  date    default sysdate,     --È¸¿ø°¡ÀÔ³¯Â¥
-    user_noname1    varchar2(255),      --¿©ºĞÇÊµå1
-    user_noname2    varchar2(255),      --¿©ºĞÇÊµå2
-    user_noname3    varchar2(255)       --¿©ºĞÇÊµå3    
+    user_idx       number(4)    primary key,    --íšŒì›ë²ˆí˜¸
+    user_id         varchar2(20),               --íšŒì›ì•„ì´ë””
+    user_pw         varchar2(30),               --íšŒì›ë¹„ë°€ë²ˆí˜¸
+    user_name       varchar2(20),               --íšŒì›ì´ë¦„
+    user_email      varchar2(100),              --íšŒì›ì´ë©”ì¼
+    user_email_receive   number(1),	            --íšŒì›ì´ë©”ì¼ 0: ë¹„ìˆ˜ì‹  1: ìˆ˜ì‹ 
+    user_phone      varchar2(20),               --íšŒì›ì—°ë½ì²˜
+    user_zip        varchar(7),                 --íšŒì›ìš°í¸ë²ˆí˜¸
+    user_address    varchar2(225),              --íšŒì›ì£¼ì†Œ
+    user_birth      date,                       --íšŒì›ìƒì¼
+    user_gender     number(1),	                --íšŒì›ì„±ë³„ 1: ë‚¨ 2:ì—¬
+    user_grade      number(1) default 0,        --íšŒì›ë“±ê¸‰ 0: ì¼ë°˜ 1:vip  2:ê´€ë¦¬ì
+    user_point      number(8) default 0,	     --íšŒì›í¬ì¸íŠ¸
+    user_join_date  date    default sysdate,     --íšŒì›ê°€ì…ë‚ ì§œ
+    user_noname1    varchar2(255),      --ì—¬ë¶„í•„ë“œ1
+    user_noname2    varchar2(255),      --ì—¬ë¶„í•„ë“œ2
+    user_noname3    varchar2(255)       --ì—¬ë¶„í•„ë“œ3    
 );
 
 drop sequence member_seq;
@@ -26,20 +26,25 @@ create sequence member_seq;
 
 select * from member;
 
+--ê´€ë¦¬ì(grade:2)
 insert into member(user_idx, user_id, user_pw, user_name, user_email, user_email_receive, user_phone, user_zip, user_address, user_birth, user_gender,user_grade,user_point,user_join_date,user_noname1,user_noname2,user_noname3) 
-values (member_seq.nextval, 'hong1234', 'qwer1234!', 'È«±æµ¿', 'test@gmail.com', 0,'01012341234','123-123','ÁÖ¼Ò','2000/01/01',1,0,3000, sysdate,'','','');
+values (member_seq.nextval, 'easychelin', 'easy1234', 'ê´€ë¦¬ì', 'jikum104@naver.com', 1,'01012345678','000-000','ì„œìš¸ì‹œ ë…¸ì›êµ¬ ë™ì¼ë¡œ242ê¸¸ 95, 103ë™ 1201í˜¸','2000/01/01',2,2,3000, sysdate,'','','');
+
+--ì¼ë°˜íšŒì›(grade:0)
+insert into member(user_idx, user_id, user_pw, user_name, user_email, user_email_receive, user_phone, user_zip, user_address, user_birth, user_gender,user_grade,user_point,user_join_date,user_noname1,user_noname2,user_noname3) 
+values (member_seq.nextval, 'hong1234', 'qwer1234!', 'í™ê¸¸ë™', 'test@gmail.com', 0,'01012341234','123-123','ì£¼ì†Œ','2000/01/01',1,0,3000, sysdate,'','','');
 
 
---È¸¿øÅ»Åğ
+--íšŒì›íƒˆí‡´
 drop table memberOut;
 create table memberOut(
-    memberOut_idx       number(4) primary key,    --Å»Åğ¹øÈ£
-    memberOut_id      varchar2(20),               --Å»Åğ¾ÆÀÌµğ
-    memberOut_type    number(1) ,                  --Å»Åğ»çÀ¯(1:ÀÌ¿ë·ü°¨¼Ò 2:»óÇ°ÀúÇ°Áú 3:»óÇ°°¡°İºÒ¸¸ 4:°í°´¼­ºñ½ººÒ¸¸ 5:±âÅ¸)
-    memberOut_content      varchar2(255),           --Å»Åğ¸Ş½ÃÁö
-    memberOut_date     date default sysdate,       --Å»ÅğÀÏ½Ã
-    memberOut_noname1      varchar2(255),           --¿©À¯ÇÊµå1
-    memberOut_noname2      varchar2(255)           --¿©À¯ÇÊµå2
+    memberOut_idx       number(4) primary key,    --íƒˆí‡´ë²ˆí˜¸
+    memberOut_id      varchar2(20),               --íƒˆí‡´ì•„ì´ë””
+    memberOut_type    number(1) ,                  --íƒˆí‡´ì‚¬ìœ (1:ì´ìš©ë¥ ê°ì†Œ 2:ìƒí’ˆì €í’ˆì§ˆ 3:ìƒí’ˆê°€ê²©ë¶ˆë§Œ 4:ê³ ê°ì„œë¹„ìŠ¤ë¶ˆë§Œ 5:ê¸°íƒ€)
+    memberOut_content      varchar2(255),           --íƒˆí‡´ë©”ì‹œì§€
+    memberOut_date     date default sysdate,       --íƒˆí‡´ì¼ì‹œ
+    memberOut_noname1      varchar2(255),           --ì—¬ìœ í•„ë“œ1
+    memberOut_noname2      varchar2(255)           --ì—¬ìœ í•„ë“œ2
 );
 drop sequence memberout_seq;
 create sequence memberout_seq;
@@ -47,22 +52,22 @@ create sequence memberout_seq;
 select * from memberout;
 
 insert into memberout(memberout_idx, memberout_id, memberout_type, memberout_content, memberout_date, memberout_noname1, memberout_noname2)
-values (memberout_seq.nextval, 'hong1234', 1, 'Å»Åğ¸Ş½ÃÁö', sysdate, '','');
+values (memberout_seq.nextval, 'hong1234', 1, 'íƒˆí‡´ë©”ì‹œì§€', sysdate, '','');
 
 
 --pym
---°øÁö»çÇ×
+--ê³µì§€ì‚¬í•­
 drop table notice;
 CREATE TABLE notice (
-    notice_idx      number(4) PRIMARY KEY,      --°øÁö»çÇ×¹øÈ£
-    notice_opt      number(1) default 0,        --°øÁö±¸ºĞ(0:ÀÏ¹İ°øÁö 1:Áß¿ä°øÁö)
-    notice_title    varchar2(100),              --Á¦¸ñ  
-    notice_content  varchar2(2000),             --³»¿ë
-    notice_writer   varchar2(20),               --ÀÛ¼ºÀÚ(¾ÆÀÌµğ)
-    notice_date     date    default sysdate,    --ÀÛ¼ºÀÏ
-    notice_hit      varchar2(100) default 0,    --Á¶È¸¼ö
-    notice_file     varchar2(255),              --Ã·ºÎÆÄÀÏ
-    notice_noname   varchar2(255)               --¿©ºĞÇÊµå
+    notice_idx      number(4) PRIMARY KEY,      --ê³µì§€ì‚¬í•­ë²ˆí˜¸
+    notice_opt      number(1) default 0,        --ê³µì§€êµ¬ë¶„(0:ì¼ë°˜ê³µì§€ 1:ì¤‘ìš”ê³µì§€)
+    notice_title    varchar2(100),              --ì œëª©  
+    notice_content  varchar2(2000),             --ë‚´ìš©
+    notice_writer   varchar2(20),               --ì‘ì„±ì(ì•„ì´ë””)
+    notice_date     date    default sysdate,    --ì‘ì„±ì¼
+    notice_hit      varchar2(100) default 0,    --ì¡°íšŒìˆ˜
+    notice_file     varchar2(255),              --ì²¨ë¶€íŒŒì¼
+    notice_noname   varchar2(255)               --ì—¬ë¶„í•„ë“œ
 );
 
 drop sequence notice_seq;
@@ -71,19 +76,19 @@ create sequence notice_seq;
 select * from notice;
 
 insert into notice(notice_idx, notice_opt, notice_title, notice_content, notice_writer, notice_date, notice_hit, notice_file, notice_noname)
-values (notice_seq.nextval, 0, '°øÁö»çÇ×Á¦¸ñÀÔ´Ï´Ù.', '°øÁö»çÇ× ³»¿ëÀÔ´Ï´Ù.', 'testId', sysdate, 0, 'img.jpg','');
+values (notice_seq.nextval, 0, 'ê³µì§€ì‚¬í•­ì œëª©ì…ë‹ˆë‹¤.', 'ê³µì§€ì‚¬í•­ ë‚´ìš©ì…ë‹ˆë‹¤.', 'testId', sysdate, 0, 'img.jpg','');
 
---ÀÚÁÖÇÏ´ÂÁú¹®
+--ìì£¼í•˜ëŠ”ì§ˆë¬¸
 drop table faq;
 CREATE TABLE faq (
-    faq_idx         number(4)       PRIMARY KEY,        --ÀÚÁÖÇÏ´ÂÁú¹®¹øÈ£
-    faq_category    number(1)       default 0,          --Ä«Å×°í¸® (1:¹è¼Û/Æ÷Àå  2:»óÇ°  3:¼±¹°ÇÏ±â  4:ÁÖ¹®/°áÁ¦/´ë·®ÁÖ¹®)
-    faq_title       varchar2(100),                      --Á¦¸ñ
-    faq_content     varchar2(2000),                     --³»¿ë
-    faq_writer      varchar2(20),                       --ÀÛ¼ºÀÚ(¾ÆÀÌµğ)
-    faq_hit         varchar2(100)   default 0,          --Á¶È¸¼ö
-    faq_date        date            default sysdate,    --ÀÛ¼ºÀÏ
-    faq_noname      varchar2(255)                       --¿©ºĞÇÊµå
+    faq_idx         number(4)       PRIMARY KEY,        --ìì£¼í•˜ëŠ”ì§ˆë¬¸ë²ˆí˜¸
+    faq_category    number(1)       default 0,          --ì¹´í…Œê³ ë¦¬ (1:ë°°ì†¡/í¬ì¥  2:ìƒí’ˆ  3:ì„ ë¬¼í•˜ê¸°  4:ì£¼ë¬¸/ê²°ì œ/ëŒ€ëŸ‰ì£¼ë¬¸)
+    faq_title       varchar2(100),                      --ì œëª©
+    faq_content     varchar2(2000),                     --ë‚´ìš©
+    faq_writer      varchar2(20),                       --ì‘ì„±ì(ì•„ì´ë””)
+    faq_hit         varchar2(100)   default 0,          --ì¡°íšŒìˆ˜
+    faq_date        date            default sysdate,    --ì‘ì„±ì¼
+    faq_noname      varchar2(255)                       --ì—¬ë¶„í•„ë“œ
 );
 
 drop sequence faq_seq;
@@ -92,26 +97,26 @@ create sequence faq_seq;
 select * from faq;
 
 insert into faq(faq_idx, faq_category, faq_title, faq_content, faq_writer, faq_hit, faq_date, faq_noname)
-values (faq_seq.nextval, 1, '¹è¼Û/Æ÷ÀåÀº ¾î¶»°Ô ÇÏ³ª¿ä?', '¹è¼Û ¹× Æ÷Àå ¾È³»µå¸³´Ï´Ù....', 'easychelin', 0, sysdate, '');
+values (faq_seq.nextval, 1, 'ë°°ì†¡/í¬ì¥ì€ ì–´ë–»ê²Œ í•˜ë‚˜ìš”?', 'ë°°ì†¡ ë° í¬ì¥ ì•ˆë‚´ë“œë¦½ë‹ˆë‹¤....', 'easychelin', 0, sysdate, '');
 
 
---»óÇ°¹®ÀÇ
+--ìƒí’ˆë¬¸ì˜
 drop table goodsQna;
 CREATE TABLE goodsQna (
-    goodsQna_idx            number(4)       PRIMARY KEY,        --»óÇ°¹®ÀÇ¹øÈ£
-    goods_idx               number(4)       not null,           --»óÇ°¹øÈ£
-    goods_opt               number(1)       default 0,          --°øÁö checked : 1
-    goodsQna_category       number(1)       default 0,          --Ä«Å×°í¸®(1:»óÇ° 2:¹è¼Û 3:ÁÖ¹®/°áÁ¦/´ë·®ÁÖ¹® 4:±³È¯/¹İÇ° 5:±âÅ¸)
-    goodsQna_title          varchar2(100),                      --Á¦¸ñ
-    goodsQna_content        varchar2(2000),                     --³»¿ë
-    goodsQna_writer         varchar2(20),                       --ÀÛ¼ºÀÚ(¾ÆÀÌµğ)
-    goodsQna_date           date            default sysdate,    --ÀÛ¼ºÀÏ  
-    goodsQnaReply_opt       number(1)       default 0,          --´ä±Û¿©ºÎ (0:¹®ÀÇ±Û 1:´äº¯±Û)
-    goodsQnaReply_title     varchar2(100),                      --´ä±ÛÁ¦¸ñ
-    goodsQnaReply_content   varchar2(2000),                     --´ä±Û³»¿ë
-    goodsQnaReply_writer    varchar2(20),                       --´ä±ÛÀÛ¼ºÀÚ(¾ÆÀÌµğ)
-    goodsQnaReply_date      date            default sysdate,    --´ä±ÛÀÛ¼ºÀÏ
-    goodsQna_noname         varchar2(255)                       --¿©ºĞÇÊµå
+    goodsQna_idx            number(4)       PRIMARY KEY,        --ìƒí’ˆë¬¸ì˜ë²ˆí˜¸
+    goods_idx               number(4)       not null,           --ìƒí’ˆë²ˆí˜¸
+    goods_opt               number(1)       default 0,          --ê³µì§€ checked : 1
+    goodsQna_category       number(1)       default 0,          --ì¹´í…Œê³ ë¦¬(1:ìƒí’ˆ 2:ë°°ì†¡ 3:ì£¼ë¬¸/ê²°ì œ/ëŒ€ëŸ‰ì£¼ë¬¸ 4:êµí™˜/ë°˜í’ˆ 5:ê¸°íƒ€)
+    goodsQna_title          varchar2(100),                      --ì œëª©
+    goodsQna_content        varchar2(2000),                     --ë‚´ìš©
+    goodsQna_writer         varchar2(20),                       --ì‘ì„±ì(ì•„ì´ë””)
+    goodsQna_date           date            default sysdate,    --ì‘ì„±ì¼  
+    goodsQnaReply_opt       number(1)       default 0,          --ë‹µê¸€ì—¬ë¶€ (0:ë¬¸ì˜ê¸€ 1:ë‹µë³€ê¸€)
+    goodsQnaReply_title     varchar2(100),                      --ë‹µê¸€ì œëª©
+    goodsQnaReply_content   varchar2(2000),                     --ë‹µê¸€ë‚´ìš©
+    goodsQnaReply_writer    varchar2(20),                       --ë‹µê¸€ì‘ì„±ì(ì•„ì´ë””)
+    goodsQnaReply_date      date            default sysdate,    --ë‹µê¸€ì‘ì„±ì¼
+    goodsQna_noname         varchar2(255)                       --ì—¬ë¶„í•„ë“œ
 );
 
 drop sequence goodsQna_seq;
@@ -121,27 +126,27 @@ select * from goodsQna;
 
 insert into goodsQna(goodsQna_idx, goods_idx, goods_opt, goodsQna_category, goodsQna_title, goodsQna_content, goodsQna_writer, goodsQna_date, 
 goodsQnaReply_opt, goodsQnaReply_title, goodsQnaReply_content, goodsQnaReply_writer, goodsQnaReply_date, goodsQna_noname)
-values (goodsQna_seq.nextval, 0001, 0, 1, '¹è¼Û/Æ÷ÀåÀº ¾î¶»°Ô ÇÏ³ª¿ä?', '¹è¼Û ¹× Æ÷Àå ¾È³»µå¸³´Ï´Ù....', 'easychelin', sysdate, 0, '', '', '', '', '');
+values (goodsQna_seq.nextval, 0001, 0, 1, 'ë°°ì†¡/í¬ì¥ì€ ì–´ë–»ê²Œ í•˜ë‚˜ìš”?', 'ë°°ì†¡ ë° í¬ì¥ ì•ˆë‚´ë“œë¦½ë‹ˆë‹¤....', 'easychelin', sysdate, 0, '', '', '', '', '');
 
 
---1:1¹®ÀÇ
+--1:1ë¬¸ì˜
 drop table qna;
 CREATE TABLE qna (
-    qna_idx             number(4)   PRIMARY KEY,        --1:1¹®ÀÇ¹øÈ£
-    buy_idx             number(10),                     --ÁÖ¹®¹øÈ£
-    qna_category        number(1)   default 0,          --Ä«Å×°í¸®(1:¹è¼ÛÁö¿¬/ºÒ¸¸ 2:¹İÇ°/È¯ºÒ¹®ÀÇ 3:ÁÖ¹®/°áÁ¦¹®ÀÇ 4:È¸¿øÁ¤º¸¹®ÀÇ 5:Ãë¼Ò¹®ÀÇ 6:±³È¯¹®ÀÇ 7:±âÅ¸¹®ÀÇ)
-    qna_title           varchar2(100),                  --Á¦¸ñ
-    qna_content         varchar2(2000),                 --³»¿ë
-    qna_email           varchar2(100),                  --ÀÛ¼ºÀÚ(ÀÌ¸ŞÀÏ) ¼öÁ¤°¡´É
-    qna_email_receive   number(1)   default 0,          --´äº¯¸ŞÀÏ¼ö½Å 1: ¼ö½Å
-    qna_writer          varchar2(20),                   --ÀÛ¼ºÀÚ(¾ÆÀÌµğ)
-    qna_date            date        default sysdate,    --ÀÛ¼ºÀÏ
-    qnaReply_opt        number(1)   default 0,          --´ä±Û¿©ºÎ(0:¹®ÀÇ±Û  1:´äº¯±Û)
-    qnaReply_title      varchar2(100),                  --´ä±ÛÁ¦¸ñ
-    qnaReply_content    varchar2(2000),                 --´ä±Û³»¿ë
-    qnaReply_writer     varchar2(20),                   --´ä±ÛÀÛ¼ºÀÚ(¾ÆÀÌµğ)
-    qnaReply_date       date        default sysdate,    --´ä±ÛÀÛ¼ºÀÏ
-    qna_noname          varchar2(255)                   --¿©ºĞÇÊµå
+    qna_idx             number(4)   PRIMARY KEY,        --1:1ë¬¸ì˜ë²ˆí˜¸
+    buy_idx             number(10),                     --ì£¼ë¬¸ë²ˆí˜¸
+    qna_category        number(1)   default 0,          --ì¹´í…Œê³ ë¦¬(1:ë°°ì†¡ì§€ì—°/ë¶ˆë§Œ 2:ë°˜í’ˆ/í™˜ë¶ˆë¬¸ì˜ 3:ì£¼ë¬¸/ê²°ì œë¬¸ì˜ 4:íšŒì›ì •ë³´ë¬¸ì˜ 5:ì·¨ì†Œë¬¸ì˜ 6:êµí™˜ë¬¸ì˜ 7:ê¸°íƒ€ë¬¸ì˜)
+    qna_title           varchar2(100),                  --ì œëª©
+    qna_content         varchar2(2000),                 --ë‚´ìš©
+    qna_email           varchar2(100),                  --ì‘ì„±ì(ì´ë©”ì¼) ìˆ˜ì •ê°€ëŠ¥
+    qna_email_receive   number(1)   default 0,          --ë‹µë³€ë©”ì¼ìˆ˜ì‹  1: ìˆ˜ì‹ 
+    qna_writer          varchar2(20),                   --ì‘ì„±ì(ì•„ì´ë””)
+    qna_date            date        default sysdate,    --ì‘ì„±ì¼
+    qnaReply_opt        number(1)   default 0,          --ë‹µê¸€ì—¬ë¶€(0:ë¬¸ì˜ê¸€  1:ë‹µë³€ê¸€)
+    qnaReply_title      varchar2(100),                  --ë‹µê¸€ì œëª©
+    qnaReply_content    varchar2(2000),                 --ë‹µê¸€ë‚´ìš©
+    qnaReply_writer     varchar2(20),                   --ë‹µê¸€ì‘ì„±ì(ì•„ì´ë””)
+    qnaReply_date       date        default sysdate,    --ë‹µê¸€ì‘ì„±ì¼
+    qna_noname          varchar2(255)                   --ì—¬ë¶„í•„ë“œ
 );
 
 drop sequence qna_seq;
@@ -151,21 +156,21 @@ select * from qna;
 
 insert into qna(qna_idx, buy_idx, qna_category, qna_title, qna_content, qna_email, qna_email_receive, qna_writer, qna_date,  
 qnaReply_opt, qnaReply_title, qnaReply_content, qnaReply_writer, qnaReply_date, qna_noname)
-values (qna_seq.nextval, 2201210001, 1, '¹è¼ÛÀº ¾ğÁ¦µÇ³ª¿ä?', '¹è¼Û ¾È³»µå¸³´Ï´Ù....', 'test@naver.com', 1, 'easychelin', sysdate, 0, '', '', '', '', '');
+values (qna_seq.nextval, 2201210001, 1, 'ë°°ì†¡ì€ ì–¸ì œë˜ë‚˜ìš”?', 'ë°°ì†¡ ì•ˆë‚´ë“œë¦½ë‹ˆë‹¤....', 'test@naver.com', 1, 'easychelin', sysdate, 0, '', '', '', '', '');
 
 
---»óÇ°Æò
+--ìƒí’ˆí‰
 drop table review;
 CREATE TABLE review ( 
-    review_idx      number(4)   PRIMARY KEY,        --»óÇ°Æò¹øÈ£
-    buy_idx         number(10)  not null,           --ÁÖ¹®¹øÈ£
-    review_star     number(1),                      --ÆòÁ¡(1:¸Å¿ì¸¸Á· 2:¸¸Á· 3:º¸Åë 4:ºÒ¸¸ 5:¸Å¿ìºÒ¸¸)
-    review_title    varchar2(100),                  --Á¦¸ñ
-    review_content  varchar2(2000),                 --³»¿ë
-    review_writer   varchar2(20),                   --ÀÛ¼ºÀÚ(¾ÆÀÌµğ)
-    review_img      varchar2(255),                  --Ã·ºÎÀÌ¹ÌÁö
-    review_date     date        default sysdate,    --ÀÛ¼ºÀÏ
-    review_noname   varchar2(255)                   --¿©À¯ÇÊµå
+    review_idx      number(4)   PRIMARY KEY,        --ìƒí’ˆí‰ë²ˆí˜¸
+    buy_idx         number(10)  not null,           --ì£¼ë¬¸ë²ˆí˜¸
+    review_star     number(1),                      --í‰ì (1:ë§¤ìš°ë§Œì¡± 2:ë§Œì¡± 3:ë³´í†µ 4:ë¶ˆë§Œ 5:ë§¤ìš°ë¶ˆë§Œ)
+    review_title    varchar2(100),                  --ì œëª©
+    review_content  varchar2(2000),                 --ë‚´ìš©
+    review_writer   varchar2(20),                   --ì‘ì„±ì(ì•„ì´ë””)
+    review_img      varchar2(255),                  --ì²¨ë¶€ì´ë¯¸ì§€
+    review_date     date        default sysdate,    --ì‘ì„±ì¼
+    review_noname   varchar2(255)                   --ì—¬ìœ í•„ë“œ
 );
 
 drop sequence review_seq;
@@ -174,22 +179,22 @@ create sequence review_seq;
 select * from review;
 
 insert into review(review_idx, buy_idx, review_star, review_title, review_content, review_writer, review_img, review_date, review_noname)
-values (review_seq.nextval, 2201210001, 1, '¸ÀÀÖ¾î¿ä~', '¹è¼Ûµµ ºü¸£°í, ¸Àµµ ÁÁ¾Æ....', 'easychelin', 'img.jpg', sysdate, '');
+values (review_seq.nextval, 2201210001, 1, 'ë§›ìˆì–´ìš”~', 'ë°°ì†¡ë„ ë¹ ë¥´ê³ , ë§›ë„ ì¢‹ì•„....', 'easychelin', 'img.jpg', sysdate, '');
 
 
---ÀÌº¥Æ®
+--ì´ë²¤íŠ¸
 drop table event;
 CREATE TABLE event (
-    event_idx           number(4)   PRIMARY KEY,        --ÀÌº¥Æ®¹øÈ£
-    event_list_img      varchar2(255),                  --¸®½ºÆ®¿¡¼­ º¸¿©Áö´Â ÀÌ¹ÌÁö
-    event_title         varchar2(100),                  --Á¦¸ñ
-    event_list_content  varchar2(200),                  --¸®½ºÆ®¿¡¼­ º¸¿©Áö´Â ³»¿ë
-    event_periodStart   date,                           --ÀÌº¥Æ® ½ÃÀÛÀÏ
-    event_periodEnd     date,                           --ÀÌº¥Æ® Á¾·áÀÏ
-    event_hit           number(10),                     --Á¶È¸¼ö
-    event_view_content  varchar2(2000),                 --ºä¿¡¼­ º¸¿©Áö´Â ³»¿ë
-    event_date          date        default sysdate,    --ÀÌº¥Æ®µî·ÏÀÏ
-    event_noname        varchar2(255)                   --¿©ºĞÇÊµå
+    event_idx           number(4)   PRIMARY KEY,        --ì´ë²¤íŠ¸ë²ˆí˜¸
+    event_list_img      varchar2(255),                  --ë¦¬ìŠ¤íŠ¸ì—ì„œ ë³´ì—¬ì§€ëŠ” ì´ë¯¸ì§€
+    event_title         varchar2(100),                  --ì œëª©
+    event_list_content  varchar2(200),                  --ë¦¬ìŠ¤íŠ¸ì—ì„œ ë³´ì—¬ì§€ëŠ” ë‚´ìš©
+    event_periodStart   date,                           --ì´ë²¤íŠ¸ ì‹œì‘ì¼
+    event_periodEnd     date,                           --ì´ë²¤íŠ¸ ì¢…ë£Œì¼
+    event_hit           number(10),                     --ì¡°íšŒìˆ˜
+    event_view_content  varchar2(2000),                 --ë·°ì—ì„œ ë³´ì—¬ì§€ëŠ” ë‚´ìš©
+    event_date          date        default sysdate,    --ì´ë²¤íŠ¸ë“±ë¡ì¼
+    event_noname        varchar2(255)                   --ì—¬ë¶„í•„ë“œ
 );
 
 drop sequence event_seq;
@@ -198,18 +203,18 @@ create sequence event_seq;
 select * from event;
 
 insert into event(event_idx, event_list_img, event_title, event_list_content, event_periodStart, event_periodEnd, event_hit, event_view_content, event_date, event_noname)
-values (event_seq.nextval, 'img.jpg', 'Ã¹ ±¸¸Å ÀÌº¥Æ®', 'Ã¹±¸¸ÅÇÏ°í Àû¸³±İµµ ¹ŞÀÚ...', '2022/01/01', '2022/02/15', 0, 'Ã¹±¸¸ÅÀÌº¥Æ® ¾È³»ÀÔ´Ï´Ù..', sysdate, '');
+values (event_seq.nextval, 'img.jpg', 'ì²« êµ¬ë§¤ ì´ë²¤íŠ¸', 'ì²«êµ¬ë§¤í•˜ê³  ì ë¦½ê¸ˆë„ ë°›ì...', '2022/01/01', '2022/02/15', 0, 'ì²«êµ¬ë§¤ì´ë²¤íŠ¸ ì•ˆë‚´ì…ë‹ˆë‹¤..', sysdate, '');
 
 
 --khr
--- »óÇ° Ä«Å×°í¸® db ¸¸µé±â
+-- ìƒí’ˆ ì¹´í…Œê³ ë¦¬ db ë§Œë“¤ê¸°
 drop table goodsCate;
 create table goodsCate(
-    goodsCate1          number(1) NOT NULL,     -- 1Â÷ »óÇ° Ä«Å×°í¸®(1:¹ĞÅ°Æ® 2:½Å¼±½ÄÇ° 3:³Ãµ¿½ÄÇ° 4:°Ç°­½ÄÇ°)
-    goodsCate2_idx      number(2) PRIMARY KEY,  -- 2Â÷ »óÇ° Ä«Å×°í¸®
-    goodsCate2_name     varchar2(50),           -- 2Â÷ »óÇ° Ä«Å×°í¸®¸í
-    goodsCate2_noname1  varchar2(255),          -- ¿©À¯ÇÊµå1
-    goodsCate2_noname2  varchar2(255)           -- ¿©À¯ÇÊµå2
+    goodsCate1          number(1) NOT NULL,     -- 1ì°¨ ìƒí’ˆ ì¹´í…Œê³ ë¦¬(1:ë°€í‚¤íŠ¸ 2:ì‹ ì„ ì‹í’ˆ 3:ëƒ‰ë™ì‹í’ˆ 4:ê±´ê°•ì‹í’ˆ)
+    goodsCate2_idx      number(2) PRIMARY KEY,  -- 2ì°¨ ìƒí’ˆ ì¹´í…Œê³ ë¦¬
+    goodsCate2_name     varchar2(50),           -- 2ì°¨ ìƒí’ˆ ì¹´í…Œê³ ë¦¬ëª…
+    goodsCate2_noname1  varchar2(255),          -- ì—¬ìœ í•„ë“œ1
+    goodsCate2_noname2  varchar2(255)           -- ì—¬ìœ í•„ë“œ2
 );
 drop sequence goodsCate_seq;
 create sequence goodsCate_seq;
@@ -217,53 +222,55 @@ create sequence goodsCate_seq;
 select * from goodsCate;
 
 insert into goodsCate(goodsCate2_idx, goodsCate1, goodsCate2_name, goodsCate2_noname1, goodsCate2_noname2)
-values (goodsCate_seq.nextval, 2, 'Ã¤¼Ò', '', '');
+values (goodsCate_seq.nextval, 2, 'ì±„ì†Œ', '', '');
 
 
--- »óÇ° db ¸¸µé±â
+-- ìƒí’ˆ db ë§Œë“¤ê¸°
 drop table goods;
 create table goods(
-    goods_idx           number(4) PRIMARY KEY,  -- »óÇ°¹øÈ£
-    goodsCate1          number(1),              -- 1Â÷ »óÇ° Ä«Å×°í¸®(1: ¹ĞÅ°Æ® / 2: ½Å¼± / 3:³Ãµ¿ / 4: °Ç°­)
-    goodsCate2_idx      number(2),              -- 2Â÷ »óÇ° Ä«Å×°í¸®
-    goods_brand         varchar2(60),           -- »óÇ°ºê·£µå
-    goods_name          varchar2(100),          -- »óÇ°¸í
-    goods_summary       varchar2(100),          -- »óÇ°°£·«¼Ò°³
-    goods_inew          char(1) DEFAULT '0',    -- »óÇ°Æ¯¼º(½Å»óÇ°) ¼±ÅÃ : 1
-    goods_ibest         char(1) DEFAULT '0',    -- »óÇ°Æ¯¼º(º£½ºÆ®) ¼±ÅÃ : 1
-    goods_isale         char(1) DEFAULT '0',    -- »óÇ°Æ¯¼º(¼¼ÀÏ) ¼±ÅÃ : 1
-    goods_isoldout      char(1) DEFAULT '0',    -- »óÇ°Æ¯¼º(Ç°Àı) ¼±ÅÃ : 1
-    goods_price         number(7),              -- Á¤°¡
-    goods_salePrice     number(7),              -- ÇÒÀÎ°¡(ÆÇ¸Å°¡)
-    goods_maxbuy        number(2) DEFAULT 20,   -- ÃÖ´ë ±¸¸Å °¡´É ¼ö
-    goods_point         char(1) DEFAULT '0',    -- Àû¸³±İ(1: ±âº» Àû¸³±İ / 2: º°µµ Àû¸³±İ / 3: Àû¸³±İ ¾øÀ½)
-    goods_delivery      char(1) DEFAULT '0',    -- ¹è¼Ûºñ(1: ±âº» ¹è¼Ûºñ / 2: º°µµ ¹è¼Ûºñ / 3: ¹è¼Ûºñ ¾øÀ½)
-    goods_weight        varchar2(100),          -- Áß·®/¿ë·®
-    goods_allergy       varchar2(2000),         -- ¾Ë·¹¸£±â Á¤º¸
-    goods_item_use      char(1) DEFAULT '0',    -- »óÇ°Ãß°¡Ç×¸ñ(1: »ç¿ë / 0: »ç¿ë¾ÈÇÔ)
-    goods_item1_title   varchar2(30),           -- Ç×¸ñ1 Á¦¸ñ
-    goods_item1_content varchar2(1000),         -- Ç×¸ñ1 ³»¿ë
-    goods_item2_title   varchar2(30),           -- Ç×¸ñ2 Á¦¸ñ
-    goods_item2_content varchar2(1000),         -- Ç×¸ñ2 ³»¿ë
-    goods_count         number(2) DEFAULT 1,    -- »óÇ°¼ö·®
-    goods_detail        varchar2(1000),         -- »óÇ°»ó¼¼Á¤º¸
-    goods_hit           number(10) DEFAULT 0,   -- Á¶È¸¼ö
-    goods_star          number(1) DEFAULT 0,    -- ÆòÁ¡
-    goods_sale_count    number(10) DEFAULT 0,   -- ÆÇ¸Å¼ö
-    goods_indate        date DEFAULT sysdate,   -- »óÇ° µî·ÏÀÏ
-    goods_modidate      date DEFAULT sysdate,   -- »óÇ° ¼öÁ¤ÀÏ
-    goods_available     number(4) default 9999, -- Àç°í¼ö·®
-    goods_delinfo_opt   number(1) DEFAULT 0,    -- »óÇ° ¹è¼Û Á¤º¸(¼±ÅÃ : 1)
-    goods_delinfo_text  varchar2(2000),         -- º°µµ ¹è¼Û Á¤º¸
-    goods_return_opt    number(1) DEFAULT 0,    -- ±³È¯¹İÇ° Á¤º¸(¼±ÅÃ : 1)
-    goods_return_text   varchar2(2000),         -- º°µµ ±³È¯¹İÇ° Á¤º¸
-    goods_img_main      varchar2(255),          -- »óÇ° ¸ŞÀÎ/¸®½ºÆ® ÀÌ¹ÌÁö
-    goods_img_detail1   varchar2(255),          -- »óÇ° »ó¼¼º¸±â1 ÀÌ¹ÌÁö
-    goods_img_detail2   varchar2(255),          -- »óÇ° »ó¼¼º¸±â2 ÀÌ¹ÌÁö
-    goods_img_detail3   varchar2(255),          -- »óÇ° »ó¼¼º¸±â3 ÀÌ¹ÌÁö
-    goods_img_detail4   varchar2(255),          -- »óÇ° »ó¼¼º¸±â4 ÀÌ¹ÌÁö
-    goods_noname1       varchar2(255),          -- ¿©À¯ÇÊµå1
-    goods_noname2       varchar2(255)           -- ¿©À¯ÇÊµå2
+    goods_idx           number(4) PRIMARY KEY,  -- ìƒí’ˆë²ˆí˜¸
+    goodsCate1          number(1),              -- 1ì°¨ ìƒí’ˆ ì¹´í…Œê³ ë¦¬(1: ë°€í‚¤íŠ¸ / 2: ì‹ ì„  / 3:ëƒ‰ë™ / 4: ê±´ê°•)
+    goodsCate2_idx      number(2),              -- 2ì°¨ ìƒí’ˆ ì¹´í…Œê³ ë¦¬
+    goods_brand         varchar2(60),           -- ìƒí’ˆë¸Œëœë“œ
+    goods_name          varchar2(100),          -- ìƒí’ˆëª…
+    goods_summary       varchar2(100),          -- ìƒí’ˆê°„ëµì†Œê°œ
+    goods_inew          char(1) DEFAULT '0',    -- ìƒí’ˆíŠ¹ì„±(ì‹ ìƒí’ˆ) ì„ íƒ : 1
+    goods_ibest         char(1) DEFAULT '0',    -- ìƒí’ˆíŠ¹ì„±(ë² ìŠ¤íŠ¸) ì„ íƒ : 1
+    goods_isale         char(1) DEFAULT '0',    -- ìƒí’ˆíŠ¹ì„±(ì„¸ì¼) ì„ íƒ : 1
+    goods_isoldout      char(1) DEFAULT '0',    -- ìƒí’ˆíŠ¹ì„±(í’ˆì ˆ) ì„ íƒ : 1
+    goods_price         number(7),              -- ì •ê°€
+    goods_salePrice     number(7),              -- í• ì¸ê°€(íŒë§¤ê°€)
+    goods_maxbuy        number(2) DEFAULT 20,   -- ìµœëŒ€ êµ¬ë§¤ ê°€ëŠ¥ ìˆ˜
+    goods_point         char(1) DEFAULT '0',    -- ì ë¦½ê¸ˆ(1: ê¸°ë³¸ ì ë¦½ê¸ˆ / 2: ë³„ë„ ì ë¦½ê¸ˆ / 3: ì ë¦½ê¸ˆ ì—†ìŒ)
+    goods_pointEtc      number(3),              -- ë³„ë„ì ë¦½ê¸ˆ(%)
+    goods_delivery      char(1) DEFAULT '0',    -- ë°°ì†¡ë¹„(1: ê¸°ë³¸ ë°°ì†¡ë¹„ / 2: ë³„ë„ ë°°ì†¡ë¹„ / 3: ë°°ì†¡ë¹„ ì—†ìŒ)
+    goods_deliveryEtc   number(4),              -- ë³„ë„ë°°ì†¡ë¹„(ì›)
+    goods_weight        varchar2(100),          -- ì¤‘ëŸ‰/ìš©ëŸ‰
+    goods_allergy       varchar2(2000),         -- ì•Œë ˆë¥´ê¸° ì •ë³´
+    goods_item_use      char(1) DEFAULT '0',    -- ìƒí’ˆì¶”ê°€í•­ëª©(1: ì‚¬ìš© / 0: ì‚¬ìš©ì•ˆí•¨)
+    goods_item1_title   varchar2(30),           -- í•­ëª©1 ì œëª©
+    goods_item1_content varchar2(1000),         -- í•­ëª©1 ë‚´ìš©
+    goods_item2_title   varchar2(30),           -- í•­ëª©2 ì œëª©
+    goods_item2_content varchar2(1000),         -- í•­ëª©2 ë‚´ìš©
+    goods_detail        varchar2(1000),         -- ìƒí’ˆìƒì„¸ì •ë³´
+    goods_hit           number(10) DEFAULT 0,   -- ì¡°íšŒìˆ˜
+    goods_star          number(1) DEFAULT 0,    -- í‰ì 
+    goods_sale_count    number(10) DEFAULT 0,   -- íŒë§¤ìˆ˜
+    goods_indate        date DEFAULT sysdate,   -- ìƒí’ˆ ë“±ë¡ì¼
+    goods_modidate      date DEFAULT sysdate,   -- ìƒí’ˆ ìˆ˜ì •ì¼
+    goods_available     number(4) default 9999, -- ì¬ê³ ìˆ˜ëŸ‰
+    goods_delinfo_opt   number(1) DEFAULT 0,    -- ìƒí’ˆ ë°°ì†¡ ì •ë³´(ì„ íƒ : 1)
+    goods_delinfo_text  varchar2(2000),         -- ë³„ë„ ë°°ì†¡ ì •ë³´
+    goods_return_opt    number(1) DEFAULT 0,    -- êµí™˜ë°˜í’ˆ ì •ë³´(ì„ íƒ : 1)
+    goods_return_text   varchar2(2000),         -- ë³„ë„ êµí™˜ë°˜í’ˆ ì •ë³´
+    goods_img_main      varchar2(255),          -- ìƒí’ˆ ë©”ì¸/ë¦¬ìŠ¤íŠ¸ ì´ë¯¸ì§€
+    goods_img_detail1   varchar2(255),          -- ìƒí’ˆ ìƒì„¸ë³´ê¸°1 ì´ë¯¸ì§€
+    goods_img_detail2   varchar2(255),          -- ìƒí’ˆ ìƒì„¸ë³´ê¸°2 ì´ë¯¸ì§€
+    goods_img_detail3   varchar2(255),          -- ìƒí’ˆ ìƒì„¸ë³´ê¸°3 ì´ë¯¸ì§€
+    goods_img_detail4   varchar2(255),          -- ìƒí’ˆ ìƒì„¸ë³´ê¸°4 ì´ë¯¸ì§€
+    goods_view          number(1) DEFAULT 1,    -- ìƒí’ˆ ì§„ì—´ì—¬ë¶€ (1:ì§„ì—´ 2:ìˆ¨ê¹€)
+    goods_noname1       varchar2(255),          -- ì—¬ìœ í•„ë“œ1
+    goods_noname2       varchar2(255)           -- ì—¬ìœ í•„ë“œ2
 );
 
 drop sequence goods_seq;
@@ -273,30 +280,34 @@ select * from goods;
 
 INSERT INTO goods (goods_idx, goodsCate1, goodsCate2_idx, goods_brand, goods_name, goods_summary,
                    goods_inew, goods_ibest, goods_isale, goods_isoldout, goods_price, goods_salePrice,
-                   goods_maxbuy, goods_point, goods_delivery, goods_weight, goods_allergy,
+                   goods_maxbuy, goods_point, goods_pointEtc, goods_delivery, goods_deliveryEtc, goods_weight, goods_allergy,
                    goods_item_use, goods_item1_title, goods_item1_content, goods_item2_title, goods_item2_content,
-                   goods_count, goods_detail, goods_hit, goods_star, goods_sale_count, goods_indate, goods_modidate,
+                   goods_detail, goods_hit, goods_star, goods_sale_count, goods_indate, goods_modidate,
                    goods_available, goods_delinfo_opt, goods_delinfo_text, goods_return_opt, goods_return_text,
-                   goods_img_main, goods_img_detail1, goods_img_detail2, goods_img_detail3, goods_img_detail4,
+                   goods_img_main, goods_img_detail1, goods_img_detail2, goods_img_detail3, goods_img_detail4, goods_view,
                    goods_noname1, goods_noname2) 
-values (goods_seq.nextval, 1, 05, '½ºÀ­¹ë·±½º', '¿À´ÃÀÇ »ø·¯µå 6Á¾', '´ÙÃ¤·Î¿î ÅäÇÎÀ» ¾ñÀº »ø·¯µå',
-        '1', '1', '1', '1', 4900, 4165, 5, '1', '1', '1Åë(240g)', '½¬¸²ÇÁ ¿¡±× »ø·¯µå : Åä¸¶Åä, ´ëµÎ, »õ¿ì, ¾Ë·ù, ¿ìÀ¯, ¹Ğ, Á¶°³·ù ÇÔÀ¯', '0', '', '', '', '',
-        1, '01. ½¬¸²ÇÁ ¿¡±× »ø·¯µå', 0, 1, 0, sysdate, sysdate, 9999, 0, '', 0, '', 'main.jpg', 'subimg1.jpg', 'subimg2.jpg', 'subimg3.jpg', 'subimg4.jpg', '', '');
+values (goods_seq.nextval, 1, 05, 'ìŠ¤ìœ—ë°¸ëŸ°ìŠ¤', 'ì˜¤ëŠ˜ì˜ ìƒëŸ¬ë“œ 6ì¢…', 'ë‹¤ì±„ë¡œìš´ í† í•‘ì„ ì–¹ì€ ìƒëŸ¬ë“œ',
+        '1', '1', '1', '1', 4900, 4165, 
+        5, '1', '', '1', '', '1í†µ(240g)', 'ì‰¬ë¦¼í”„ ì—ê·¸ ìƒëŸ¬ë“œ : í† ë§ˆí† , ëŒ€ë‘, ìƒˆìš°, ì•Œë¥˜, ìš°ìœ , ë°€, ì¡°ê°œë¥˜ í•¨ìœ ', 
+        '0', '', '', '', '',
+        '01. ì‰¬ë¦¼í”„ ì—ê·¸ ìƒëŸ¬ë“œ', 0, 1, 0, sysdate, sysdate, 
+        9999, 0, '', 0, '', 
+        'main.jpg', 'subimg1.jpg', 'subimg2.jpg', 'subimg3.jpg', 'subimg4.jpg', 1, '', '');
 
 --sej
---Àå¹Ù±¸´Ï
+--ì¥ë°”êµ¬ë‹ˆ
 drop table cart;
 create table cart(
-    cart_idx        number(4) not null  primary key,    --Ä«µå¹øÈ£
-    user_idx        number(4) not null,     --È¸¿ø¾ÆÀÌµğ
-    goods_idx       number(4),              --»óÇ°¾ÆÀÌµğ
-    cart_img        varchar2(255),          --»óÇ°ÀÌ¹ÌÁö
-    cart_brand      varchar2(60),           --»óÇ°ºê·£µå   
-    cart_name       varchar2(100),          --»óÇ°¸í
-    cart_pcs        number(4),              --»óÇ°¼ö·®
-    cart_subPrice   number(10),             --»óÇ°´Ü°¡
-    cart_noname1    varchar2(255),          --¿©ºĞÇÊµå1
-    cart_noname2    varchar2(255)           --¿©ºĞÇÊµå2  
+    cart_idx        number(4) not null  primary key,    --ì¹´ë“œë²ˆí˜¸
+    user_idx        number(4) not null,     --íšŒì›ì•„ì´ë””
+    goods_idx       number(4),              --ìƒí’ˆì•„ì´ë””
+    cart_img        varchar2(255),          --ìƒí’ˆì´ë¯¸ì§€
+    cart_brand      varchar2(60),           --ìƒí’ˆë¸Œëœë“œ   
+    cart_name       varchar2(100),          --ìƒí’ˆëª…
+    cart_pcs        number(4),              --ìƒí’ˆìˆ˜ëŸ‰
+    cart_subPrice   number(10),             --ìƒí’ˆë‹¨ê°€
+    cart_noname1    varchar2(255),          --ì—¬ë¶„í•„ë“œ1
+    cart_noname2    varchar2(255)           --ì—¬ë¶„í•„ë“œ2  
 );
 drop sequence cart_seq;
 create sequence cart_seq; 
@@ -304,30 +315,32 @@ create sequence cart_seq;
 select * from cart;
 
 insert into cart(cart_idx, user_idx, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
-values (cart_seq.nextval, 0001, 0120, 'img.jpg', '½ºÀ­¹ë·±½º', '»ø·¯µå 6Á¾', 5, 9600, '', '');
+values (cart_seq.nextval, 0001, 0120, 'img.jpg', 'ìŠ¤ìœ—ë°¸ëŸ°ìŠ¤', 'ìƒëŸ¬ë“œ 6ì¢…', 5, 9600, '', '');
 
 
---ÁÖ¹®
+--ì£¼ë¬¸
 drop table buy;
 create table buy(
-    buy_idx         number(10)  not null  primary key,    --ÁÖ¹®¹øÈ£
-    user_idx        number(4)   not null,           --È¸¿ø¾ÆÀÌµğ
-    receive_name    varchar2(20),                   --¼öÃëÀÎ ÀÌ¸§
-    receive_phone   varchar2(20),                   --¼öÃëÀÎ ÀüÈ­¹øÈ£
-    receive_zip     varchar2(7),                    --¼öÃëÀÎ ¿ìÆí¹øÈ£
-    receive_add     varchar2(255),                  --¼öÃëÀÎ ÁÖ¼Ò
-    buy_message     varchar2(255),                  --¹è¼Û¸Ş½ÃÁö
-    buy_totalPrice  number(10),                     --»óÇ°ÃÑ±İ¾×
-    buy_usePoint    number(8)   default 0,          --»ç¿ëÀû¸³±İ	
-    buy_useCupon    number(8)   default 0,	        --»ç¿ëÄíÆù   
-    buy_fare        number(8)   default 0,	        --¹è¼Ûºñ
-    buy_payment     number(8)   default 0,	        --°áÁ¦±İ¾×
-    buy_date        date        default sysdate,    --ÁÖ¹®ÀÏ
-    buy_state       number(1)   default 1,          --ÁÖ¹®»óÅÂ(1:ÁÖ¹®È®ÀÎÀü 2:»óÇ°ÁØºñÁß 3:¹è¼ÛÁß 4:¹è¼Û¿Ï·á)
-    buy_returnState number(1)   default 1,          --±³È¯/º¯°æÀÏ (1:½Å±Ô 2:Ãë¼Ò 3:±³È¯ 4:¹İÇ°)
-    buy_deliveryNo  varchar2(255),                  --¼ÛÀå¹øÈ£
-    buy_noname1     varchar2(255),                  --¿©À¯ÇÊµå1
-    buy_noname2     varchar2(255)                   --¿©À¯ÇÊµå2
+    buy_idx         number(10)  not null  primary key,    --ì£¼ë¬¸ë²ˆí˜¸
+    user_idx        number(4)   not null,           --íšŒì›ì•„ì´ë””
+    receive_name    varchar2(20),                   --ìˆ˜ì·¨ì¸ ì´ë¦„
+    receive_phone   varchar2(20),                   --ìˆ˜ì·¨ì¸ ì „í™”ë²ˆí˜¸
+    receive_zip     varchar2(7),                    --ìˆ˜ì·¨ì¸ ìš°í¸ë²ˆí˜¸
+    receive_add     varchar2(255),                  --ìˆ˜ì·¨ì¸ ì£¼ì†Œ
+    buy_message     varchar2(255),                  --ë°°ì†¡ë©”ì‹œì§€
+    buy_totalPrice  number(10),                     --ìƒí’ˆì´ê¸ˆì•¡
+    buy_usePoint    number(8)   default 0,          --ì‚¬ìš©ì ë¦½ê¸ˆ	
+    buy_useCupon    number(8)   default 0,	        --ì‚¬ìš©ì¿ í°   
+    buy_fare        number(8)   default 0,	        --ë°°ì†¡ë¹„
+    buy_payment     number(8)   default 0,	        --ê²°ì œê¸ˆì•¡
+    buy_paymentState    number(1)   default 0,      --ê²°ì œìƒíƒœ (1:ê²°ì œì™„ë£Œ 2:ì…ê¸ˆëŒ€ê¸°)
+    buy_paymentSort     number(1)   default 0,      --ê²°ì œë°©ë²• (1:ì‹ ìš©ì¹´ë“œ 2:ê°„í¸ê²°ì œ 3:íœ´ëŒ€í°)
+    buy_date        date        default sysdate,    --ì£¼ë¬¸ì¼
+    buy_state       number(1)   default 1,          --ì£¼ë¬¸ìƒíƒœ(1:ì£¼ë¬¸í™•ì¸ì „ 2:ìƒí’ˆì¤€ë¹„ì¤‘ 3:ë°°ì†¡ì¤‘ 4:ë°°ì†¡ì™„ë£Œ)
+    buy_returnState number(1)   default 1,          --êµí™˜/ë³€ê²½ì¼ (1:ì‹ ê·œ 2:ì·¨ì†Œ 3:êµí™˜ 4:ë°˜í’ˆ)
+    buy_deliveryNo  varchar2(255),                  --ì†¡ì¥ë²ˆí˜¸
+    buy_noname1     varchar2(255),                  --ì—¬ìœ í•„ë“œ1
+    buy_noname2     varchar2(255)                   --ì—¬ìœ í•„ë“œ2
 );
 
 drop sequence buy_seq;
@@ -336,24 +349,28 @@ create sequence buy_seq;
 select * from buy;
 
 insert into buy(buy_idx, user_idx, receive_name, receive_phone, receive_zip, receive_add, 
-buy_message, buy_totalPrice, buy_usePoint, buy_useCupon, buy_fare, buy_payment, buy_date,
-buy_state, buy_returnState, buy_deliveryNo, buy_noname1, buy_noname2)
-values (buy_seq.nextval, 0001, 'È«±æµ¿', '01012345678', '123-123', '¼­¿ï...', '¹®¾Õ', 13800, 1000, 0, 3500, 9300, sysdate, 1, 1, '', '', '');
+buy_message, buy_totalPrice, buy_usePoint, buy_useCupon, buy_fare, buy_payment, 
+buy_paymentState, buy_paymentSort,
+buy_date,buy_state, buy_returnState, buy_deliveryNo, buy_noname1, buy_noname2)
+values (buy_seq.nextval, 0001, 'í™ê¸¸ë™', '01012345678', '123-123', 'ì„œìš¸...', 'ë¬¸ì•', 13800, 1000, 0, 3500, 9300, 
+0, 0, 
+sysdate, 1, 1, '', '', '');
 
 
---¹è³Ê
+--ë°°ë„ˆ
 drop table banner;
 create table banner(
-    banner_idx      number(4)   not null    primary key,    --¹è³Ê¹øÈ£
-    banner_cate     number(1)   default 0,  --¹è³ÊÄ«Å×°í¸®(1:GNB 2:¸ŞÀÎ1-Ä³·¯¼¿ 3:¸ŞÀÎ2  4:»óÇ°Ä«Å×°í¸®  5:¸¶ÀÌÆäÀÌÁö 6:·Î±×ÀÎ 7:±âÅ¸-¿©ºĞ)
-    banner_on       number(1)   default 0,  --³ëÃâ±¸ºĞ (1:³ëÃâ 2:¼û±è)
-    banner_goods    number(20),             --Á¦Ç°Ä«Å×°í¸®(banner_cate4ÀÏ°æ¿ì ÇÊ¼öÀÔ·Â)
-    banner_file     varchar2(255),          --Ã·ºÎÀÌ¹ÌÁö
-    banner_txt      varchar2(255),          --´ëÃ¼ÅØ½ºÆ®
-    banner_url      varchar2(255),          --¸µÅ©
-    banner_date     date        default sysdate,    --¹è³Ê µî·ÏÀÏ
-    banner_noname1  varchar2(255),          --¿©ºĞÇÊµå1
-    banner_noname2  varchar2(255)           --¿©ºĞÇÊµå2
+    banner_idx      number(4)   not null    primary key,    --ë°°ë„ˆë²ˆí˜¸
+    banner_cate     number(1)   default 0,  --ë°°ë„ˆì¹´í…Œê³ ë¦¬(1:GNB 2:ë©”ì¸1-ìºëŸ¬ì…€ 3:ë©”ì¸2  4:ìƒí’ˆì¹´í…Œê³ ë¦¬  5:ë§ˆì´í˜ì´ì§€ 6:ë¡œê·¸ì¸ 7:ê¸°íƒ€-ì—¬ë¶„)
+    banner_on       number(1)   default 0,  --ë…¸ì¶œêµ¬ë¶„ (1:ë…¸ì¶œ 2:ìˆ¨ê¹€)
+    banner_goods    number(20),             --ì œí’ˆì¹´í…Œê³ ë¦¬(banner_cate4ì¼ê²½ìš° í•„ìˆ˜ì…ë ¥)
+    banner_file     varchar2(255),          --ì²¨ë¶€ì´ë¯¸ì§€
+    banner_txt      varchar2(255),          --ëŒ€ì²´í…ìŠ¤íŠ¸
+    banner_url      varchar2(255),          --ë§í¬
+    banner_window   number(1)   default 1,  --ë§í¬ì—°ê²° ì°½ (1:í˜„ì¬ ì°½  2:ìƒˆ ì°½)
+    banner_date     date        default sysdate,    --ë°°ë„ˆ ë“±ë¡ì¼
+    banner_noname1  varchar2(255),          --ì—¬ë¶„í•„ë“œ1
+    banner_noname2  varchar2(255)           --ì—¬ë¶„í•„ë“œ2
 );
 drop sequence banner_seq;
 create sequence banner_seq; 
@@ -361,20 +378,20 @@ create sequence banner_seq;
 select * from banner;    
 
 insert into banner(banner_idx, banner_cate, banner_on, banner_goods, banner_file, banner_txt, 
-banner_url, banner_date, banner_noname1, banner_noname2)
-values (banner_seq.nextval, 4, 1, '101', 'img.jpg', '', 'http://www.naver.com', sysdate, '', '');
+banner_url, banner_window, banner_date, banner_noname1, banner_noname2)
+values (banner_seq.nextval, 4, 1, '101', 'img.jpg', '', 'http://www.naver.com', 1, sysdate, '', '');
 
---Àû¸³±İ
+--ì ë¦½ê¸ˆ
 drop table easyPoint;
 create table easyPoint(
-    easyPoint_idx       number(4)       not null primary key,   --Àû¸³±İ¹øÈ£
-    user_idx            number(4)       not null,           --È¸¿ø¾ÆÀÌµğ(¿Ü·¡Å° ¼³Á¤ Àü)
-    easyPoint_type      varchar2(20)    default 0,          --Àû¸³±İ Á¾·ù(1:Àû¸³  2:»ç¿ë  3:Ãë¼Ò  4:¼Ò¸ê)
-    easyPoint_content   varchar2(255),                      --Àû¸³±İ ³»¿ë
-    easyPoint_money     number(8)       default 0,          --Àû¸³±İ Á¡¼ö
-    easyPoint_date      date            default sysdate,    --Àû¸³±İ ¹ß»ıÀÏ½Ã
-    easyPoint_noname1   varchar2(255),                      --¿©À¯ÇÊµå1
-    easyPoint_noname2   varchar2(255)                       --¿©À¯ÇÊµå2
+    easyPoint_idx       number(4)       not null primary key,   --ì ë¦½ê¸ˆë²ˆí˜¸
+    user_idx            number(4)       not null,           --íšŒì›ì•„ì´ë””(ì™¸ë˜í‚¤ ì„¤ì • ì „)
+    easyPoint_type      varchar2(20)    default 0,          --ì ë¦½ê¸ˆ ì¢…ë¥˜(1:ì ë¦½  2:ì‚¬ìš©  3:ì·¨ì†Œ  4:ì†Œë©¸)
+    easyPoint_content   varchar2(255),                      --ì ë¦½ê¸ˆ ë‚´ìš©
+    easyPoint_money     number(8)       default 0,          --ì ë¦½ê¸ˆ ì ìˆ˜
+    easyPoint_date      date            default sysdate,    --ì ë¦½ê¸ˆ ë°œìƒì¼ì‹œ
+    easyPoint_noname1   varchar2(255),                      --ì—¬ìœ í•„ë“œ1
+    easyPoint_noname2   varchar2(255)                       --ì—¬ìœ í•„ë“œ2
 );
 drop sequence easyPoint_seq;
 create sequence easyPoint_seq; 
@@ -382,17 +399,17 @@ create sequence easyPoint_seq;
 select * from easyPoint; 
 
 insert into easyPoint(easyPoint_idx, user_idx, easyPoint_type, easyPoint_content, easyPoint_money, easyPoint_date, easyPoint_noname1, easyPoint_noname2)
-values (easyPoint_seq.nextval, 0001, 1, '»óÇ°±¸¸Å', '500', sysdate, '', '');
+values (easyPoint_seq.nextval, 0001, 1, 'ìƒí’ˆêµ¬ë§¤', '500', sysdate, '', '');
 
---¾à°ü°ü¸®
+--ì•½ê´€ê´€ë¦¬
 drop table terms;
 create table terms(
-    terms_idx       number(4)   not null primary key,   --¾à°ü°ü¸® ¹øÈ£
-    terms_title     varchar2(100),                  --¾à°üÁ¦¸ñ
-    terms_content   varchar2(3000),                 --¾à°ü³»¿ë
-    terms_opt       number(1)   default 0,          --µ¿ÀÇ±¸ºĞ(1:ÇÊ¼ö 2:¼±ÅÃ)
-    terms_date      date        default sysdate,    --µî·ÏÀÏ
-    terms_noname   varchar2(255)                   --¿©ºĞÇÊµå
+    terms_idx       number(4)   not null primary key,   --ì•½ê´€ê´€ë¦¬ ë²ˆí˜¸
+    terms_title     varchar2(100),                  --ì•½ê´€ì œëª©
+    terms_content   varchar2(3000),                 --ì•½ê´€ë‚´ìš©
+    terms_opt       number(1)   default 0,          --ë™ì˜êµ¬ë¶„(1:í•„ìˆ˜ 2:ì„ íƒ)
+    terms_date      date        default sysdate,    --ë“±ë¡ì¼
+    terms_noname   varchar2(255)                   --ì—¬ë¶„í•„ë“œ
 );
 drop sequence terms_seq;
 create sequence terms_seq;
@@ -400,17 +417,17 @@ create sequence terms_seq;
 select * from terms;
 
 insert into terms(terms_idx, terms_title, terms_content, terms_opt, terms_date, terms_noname)
-values (terms_seq.nextval, '¼­ºñ½º ÀÌ¿ë ¾à°ü µ¿ÀÇ', '¾à°ü....', 1, sysdate, '');
+values (terms_seq.nextval, 'ì„œë¹„ìŠ¤ ì´ìš© ì•½ê´€ ë™ì˜', 'ì•½ê´€....', 1, sysdate, '');
 
 
---Á¤Ã¥°ü¸®
+--ì •ì±…ê´€ë¦¬
 drop table easyPolicy;
 create table easyPolicy(
-    easyPolicy_idx       number(4)   not null primary key,   --Á¤Ã¥°ü¸® ¹øÈ£
-    easyPolicy_title     varchar2(100),                  --Á¤Ã¥Á¦¸ñ
-    easyPolicy_content   varchar2(3000),                 --Á¤Ã¥³»¿ë
-    easyPolicy_date      date        default sysdate,    --µî·ÏÀÏ
-    easyPolicy_noname   varchar2(255)                    --¿©ºĞÇÊµå
+    easyPolicy_idx       number(4)   not null primary key,   --ì •ì±…ê´€ë¦¬ ë²ˆí˜¸
+    easyPolicy_title     varchar2(100),                  --ì •ì±…ì œëª©
+    easyPolicy_content   varchar2(3000),                 --ì •ì±…ë‚´ìš©
+    easyPolicy_date      date        default sysdate,    --ë“±ë¡ì¼
+    easyPolicy_noname   varchar2(255)                    --ì—¬ë¶„í•„ë“œ
 );
 drop sequence easyPolicy_seq;
 create sequence easyPolicy_seq;
@@ -418,7 +435,7 @@ create sequence easyPolicy_seq;
 select * from easyPolicy;
 
 insert into easyPolicy(easyPolicy_idx, easyPolicy_title, easyPolicy_content, easyPolicy_date, easyPolicy_noname)
-values (easyPolicy_seq.nextval, '¹è¼ÛºñÁ¤Ã¥', '¹è¼Ûºñ...', sysdate, '');
+values (easyPolicy_seq.nextval, 'ë°°ì†¡ë¹„ì •ì±…', 'ë°°ì†¡ë¹„...', sysdate, '');
 
 
 commit;
