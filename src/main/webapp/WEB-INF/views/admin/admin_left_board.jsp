@@ -14,22 +14,22 @@
 </script>
 
 <ul class="list-menu">
-  <a href="/admin/board/admin_noticeList.html?2?0">
+  <a href="/admin/board/admin_noticeList?2?0">
       <li id="lists" class="lists none">공지사항 </li>
   </a>
-  <a href="/admin/board/admin_goodsQnaList.html?2?1">
+  <a href="/admin/board/admin_goodsQnaList?2?1">
       <li id="lists" class="lists none">상품문의 </li>
   </a>
-  <a href="/admin/board/admin_qnaList.html?2?2">
+  <a href="/admin/board/admin_qnaList?2?2">
       <li id="lists" class="lists none">1:1문의</li>
   </a>
-  <a href="/admin/board/admin_reviewList.html?2?3">
+  <a href="/admin/board/admin_reviewList?2?3">
       <li id="lists" class="lists none">상품평</li>
   </a>
-  <a href="/admin/board/admin_faqList.html?2?4">
+  <a href="/admin/board/admin_faqList?2?4">
       <li id="lists" class="lists none">자주하는 질문</li>
   </a>
-  <a href="/admin/board/admin_eventList.html?2?5">
+  <a href="/admin/board/admin_eventList?2?5">
       <li id="lists" class="lists none">이벤트</li>
   </a>
 </ul>
