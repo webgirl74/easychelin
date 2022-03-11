@@ -64,6 +64,16 @@
                                     <!-- <li class="myName"><a href="/mypage/orderList.html?0">홍길동님</a></li>
                                     <li class="logout"><a href="#">로그아웃</a></li> -->
                                 <!-- //로그인 후 -->
+                                
+                                <!-- 강사님 방식의 로그인 전 후 -->
+                                <%-- <c:if test="${ empty user_id }">
+							    	<li class="login"><a href="/member/login">로그인</a></li>
+							    </c:if>
+							    <c:if test="${ not empty user_id }">
+							    	<li class="myName"><a href="/mypage/orderList">홍길동님</a></li>
+							    	<li class="login"><a href="/member/login">로그아웃</a></li>
+							    </c:if> --%>
+							    
                                 <li class="memberCenter"><a href="/customer/noticeList.html?0">고객센터&nbsp;<img src="/img/header/dropdown_arrow.png" width="10" height="auto" style="margin-top: -3px;"></a>
                                     <ul>
                                         <li><a href="/customer/noticeList.html?0">공지사항</a></li>

@@ -18,15 +18,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
     
-   
+    <!-- 퀵메뉴 스크롤 -->
+    <script>
+        $(document).ready(function(){
+            var currentPosition = parseInt($(".quickMenu").css("top"));
+            $(window).scroll(function() {
+                var position = $(window).scrollTop(); 
+                var topPosition = (position)+currentPosition-250;
+              	if(topPosition <= 593) {
+                    topPosition = 593;
+                }
+                $(".quickMenu").stop().animate({"top":topPosition+"px"},1500);
+            });
+        });
+        
+        // 회원등급안내팝업
+        function callGrade() {
+            window.open('/mypage/memberGrade', '_blank', 'width=450, height=330'); 
+            return false;
+        }
+    </script>
 
     <!-- CSS -->
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
     
 </head>
 <body>
-	<!-- 헤더 -->
-    <c:import url="./header.jsp" />
 
     <!-- 메인 -->
     <div id="main">
@@ -88,7 +105,16 @@
             
         </div>
 
-        <c:import url="./quickMenu.jsp" />
+            <!-- 퀵메뉴 -->
+            <!-- 최근 본 상품 구현 X -->
+            <div class="quickMenu">
+                <a href="#"><img src="/img/goods/bnr_quick.jpg" alt="퀵배송안내" width="80" height="auto"></a>
+                <ul>
+                    <li><a href="javascript:callGrade();">등급별 혜택</a></li> 
+                    <li><a href="/customer/eventList.html?3">이벤트</a></li> 
+                    <li><a href="/mypage/orderList.html?0">마이페이지</a></li>
+                </ul>
+            </div>
 
         <div class="container">
             
@@ -458,8 +484,6 @@
             </div>
         </div> 
     </div>
-    
-    <!-- 푸터 -->
-    <c:import url="./footer.jsp" />
+
 </body>
 </html>
