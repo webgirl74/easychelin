@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>이지슐랭 :: 내일의 맛보기, 이지슐랭</title>
-
+    
 <link href="/css/footer.css" rel="stylesheet" type="text/css" />
 
     <!-- 맨 위로가기 -->
     <script>
         $(function() {
             $(window).scroll(function() {
-                if($(this).scrollTop() > 300) {
+                if($(this).scrollTop() > 200) {
                     $('#topBtn').fadeIn(); 
                 } 
                 else {
@@ -33,15 +28,14 @@
         }
 
     </script>
-    
-</head>
-<body>
-	<div class="footer">
+        
+
+    <div class="footer">
         <br>
         <div class="ftMenu">
-            <a href="/company/info">회사소개</a>
-            <a href="/service/agreement">이용약관</a>
-            <a href="/service/private">개인정보처리방침</a>
+            <a href="/company/info.html">회사소개</a>
+            <a href="/service/agreement.html">이용약관</a>
+            <a href="/service/private.html">개인정보처리방침</a>
             <a href="/customer/noticeList.html?0">고객센터</a>
         </div>
 
@@ -59,5 +53,7 @@
             <a href="#top"><img src="/img/footer/btn_pagetop.jpg" alt="맨위로 올라가기"></a>
         </div>
     </div>
+
 </body>
 </html>
+

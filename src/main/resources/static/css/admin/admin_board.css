@@ -1,0 +1,101 @@
+/* 리스트테이블 */
+.listTable {  
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-top: 1px solid #eee;
+}
+.listTable tr {
+  border-bottom: 1px solid #eee;
+}
+.listTable th {
+  background-color: #000;
+  color: #fff;
+  padding: 7px;
+  text-align: center;
+}
+.listTable td {
+  padding: 7px;  
+  text-align: center;
+}
+
+.listTable td:nth-child(3) {
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* 작은버튼(중요) */
+.sBtn {
+  padding: 0 10px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+/* view테이블 */
+.viewTable {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  border-top: 1px solid #eee;
+}
+.viewTable tr {
+  border-bottom: 1px solid #eee;
+}
+.viewTable td:first-child {
+  padding: 10px; 
+  background-color: #fff;
+}
+/* view테이블 end */
+
+/* write테이블 */
+.writeTable {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  border-top: 1px solid #eee;
+}
+.writeTable tr {
+  border-bottom: 1px solid #eee;
+}
+.writeTable td:first-child {
+  padding: 10px; 
+  background-color: #f4f4f4;
+  text-align: center;
+}
+.writeTable td:last-child {
+  padding: 10px; 
+  background-color: #fff;
+}
+/* write테이블 end */
+
+/* 버튼 */
+.btnBoard1 {
+  width: 80px;
+  height: 32px;
+  background-color: #000;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btnBoard2 {
+  width: 80px;
+  height: 32px;
+  background-color: #eee;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,12 +58,16 @@
                         <div class="topMenu">
                             <ul>
                                 <!-- 로그인 전 -->
+                                <c:if test="${ empty user_id }">
                                 <li class="join"><a href="/member/memberAgree">회원가입</a></li>
                                 <li class="login"><a href="/member/login">로그인</a></li>
+                                </c:if>
                                 <!-- //로그인 전 -->
                                 <!-- 로그인 후 -->
-                                    <!-- <li class="myName"><a href="/mypage/orderList.html?0">홍길동님</a></li>
-                                    <li class="logout"><a href="#">로그아웃</a></li> -->
+                                 <c:if test="${ not empty user_id }">
+                                   <li class="myName"><a href="/mypage/orderList.html?0">홍길동 ${user_name}님</a></li>
+                                    <li class="logout"><a href="/member/logoutAction">로그아웃</a></li> 
+                                     </c:if>
                                 <!-- //로그인 후 -->
                                 
                                 <!-- 강사님 방식의 로그인 전 후 -->

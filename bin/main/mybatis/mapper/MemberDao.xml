@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IMemberDao">     
+	
+	<select id="login" resultType="_int">
+		SELECT COUNT(*) FROM member WHERE user_id = #{param1} AND user_pw = #{param2} 
+	</select>
+	
+	<select id="idFind" resultType="com.study.springboot.dto.MemberDto">
+		SELECT * FROM member WHERE user_name = #{ param1 } AND user_email = #{ param2 }
+	</select>
+    
+    <select id="passwordFind" resultType="com.study.springboot.dto.MemberDto">
+		SELECT * FROM member WHERE user_id = #{ param1 } AND user_email = #{ param2 }
+	</select>
+	
+	<select id="idCheck" resultType="_int">
+		SELECT COUNT(*) FROM member WHERE user_id = #{param1} 
+	</select>
+	
+	<select id="emailCheck" resultType="_int">
+		SELECT COUNT(*) FROM member WHERE user_email = #{param1} 
+	</select>
+		
+	<insert id="join">
+		INSERT INTO member(user_idx, user_id, user_pw, user_name, user_email, user_email_receive, user_phone, user_zip, user_address, user_birth, user_gender, user_grade,user_point, user_join_date ,user_noname1 ,user_noname2 ,user_noname3)
+		    VALUES 
+		 (member_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10} ,0,3000, sysdate,'','','')
+	</insert>
+	
+</mapper>    
+
+

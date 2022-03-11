@@ -38,13 +38,13 @@ values (member_seq.nextval, 'hong1234', 'qwer1234!', '홍길동', 'test@gmail.co
 --회원탈퇴
 drop table memberOut;
 create table memberOut(
-    memberOut_idx       number(4) primary key,    --탈퇴번호
-    memberOut_id      varchar2(20),               --탈퇴아이디
-    memberOut_type    number(1) ,                  --탈퇴사유(1:이용률감소 2:상품저품질 3:상품가격불만 4:고객서비스불만 5:기타)
-    memberOut_content      varchar2(255),           --탈퇴메시지
-    memberOut_date     date default sysdate,       --탈퇴일시
-    memberOut_noname1      varchar2(255),           --여유필드1
-    memberOut_noname2      varchar2(255)           --여유필드2
+    memberOut_idx       number(4) primary key,  --탈퇴번호
+    memberOut_id        varchar2(20),           --탈퇴아이디
+    memberOut_type      number(1) ,             --탈퇴사유(1:이용률감소 2:상품저품질 3:상품가격불만 4:고객서비스불만 5:기타)
+    memberOut_content   varchar2(255),          --탈퇴메시지
+    memberOut_date      date default sysdate,   --탈퇴일시
+    memberOut_noname1   varchar2(255),          --여유필드1
+    memberOut_noname2   varchar2(255)           --여유필드2
 );
 drop sequence memberout_seq;
 create sequence memberout_seq;
@@ -252,7 +252,8 @@ create table goods(
     goods_item1_content varchar2(1000),         -- 항목1 내용
     goods_item2_title   varchar2(30),           -- 항목2 제목
     goods_item2_content varchar2(1000),         -- 항목2 내용
-    goods_detail        varchar2(1000),         -- 상품상세정보
+    goods_intro         varchar2(2000),         -- 상품상세정보 intro 내용
+    goods_detail        varchar2(2000),         -- 상품상세정보 pick 내용
     goods_hit           number(10) DEFAULT 0,   -- 조회수
     goods_star          number(1) DEFAULT 0,    -- 평점
     goods_sale_count    number(10) DEFAULT 0,   -- 판매수
@@ -272,27 +273,22 @@ create table goods(
     goods_noname1       varchar2(255),          -- 여유필드1
     goods_noname2       varchar2(255)           -- 여유필드2
 );
-
 drop sequence goods_seq;
 create sequence goods_seq;
-
 select * from goods;
-
 INSERT INTO goods (goods_idx, goodsCate1, goodsCate2_idx, goods_brand, goods_name, goods_summary,
                    goods_inew, goods_ibest, goods_isale, goods_isoldout, goods_price, goods_salePrice,
                    goods_maxbuy, goods_point, goods_pointEtc, goods_delivery, goods_deliveryEtc, goods_weight, goods_allergy,
                    goods_item_use, goods_item1_title, goods_item1_content, goods_item2_title, goods_item2_content,
-                   goods_detail, goods_hit, goods_star, goods_sale_count, goods_indate, goods_modidate,
+                   goods_intro, goods_detail, goods_hit, goods_star, goods_sale_count, goods_indate, goods_modidate,
                    goods_available, goods_delinfo_opt, goods_delinfo_text, goods_return_opt, goods_return_text,
-                   goods_img_main, goods_img_detail1, goods_img_detail2, goods_img_detail3, goods_img_detail4, goods_view,
-                   goods_noname1, goods_noname2) 
-values (goods_seq.nextval, 1, 05, '스윗밸런스', '오늘의 샐러드 6종', '다채로운 토핑을 얹은 샐러드',
-        '1', '1', '1', '1', 4900, 4165, 
-        5, '1', '', '1', '', '1통(240g)', '쉬림프 에그 샐러드 : 토마토, 대두, 새우, 알류, 우유, 밀, 조개류 함유', 
-        '0', '', '', '', '',
-        '01. 쉬림프 에그 샐러드', 0, 1, 0, sysdate, sysdate, 
-        9999, 0, '', 0, '', 
-        'main.jpg', 'subimg1.jpg', 'subimg2.jpg', 'subimg3.jpg', 'subimg4.jpg', 1, '', '');
+                   goods_img_main, goods_img_detail1, goods_img_detail2, goods_img_detail3, goods_img_detail4,
+                   goods_view, goods_noname1, goods_noname2) 
+values (goods_seq.nextval, 1, 03, '최현석의 중앙감속기', '발사믹 꿔바로우', '가니쉬를 곁들인 이색 중식', '', '1', '1', '', 8800, 7920, 5, '1', '', '1', '', '495g', 
+        '- 꿔바로우: 돼지고기, 밀, 대두, 쇠고기 함유 <br> - 발사믹소스: 이산화황, 대두, 밀 함유 <br> - 본 제품은 알류, 우유, 메밀, 땅콩, 고등어, 게, 새우, 복숭아, 토마토, 호두, 닭고기, 오징어, 조개류(굴, 전복, 홍합 포함), 아황산류, 잣을 사용한 제품과 같은 제조 시설에서 제조하고 있습니다.',
+        '1', '판매단위', '1팩', '포장타입', '냉동/스티로폼', '성수동의 퓨전 중식 레스토랑, 중앙감속기와 함께 양식과 중식의 오묘하고 조화로운 만남을 경험해 보세요. 이번에는 중앙감속기의 시그니처 메뉴 중 하나인 발사믹 꿔바로우를 준비했어요. 두툼하게 썰어 바삭하게 튀겨낸 꿔바로우에 발사믹 베이스의 새콤달달한 소스를 곁들여 색다른 풍미를 맛볼 수 있는 제품이에요. 딸기, 올리브 등의 발사믹과 잘 어우러지는 가니쉬를 선택해 더욱 특별한 맛을 완성했지요. 프라이팬에 휘리릭 볶아내면, 매장에서 즐기던 근사한 퓨전 중식도 손쉽게 즐길 수 있을 거예요.',
+        '<b>・중량 </b> : 1팩(495g) <br> <b>・구성 </b> : ①꿔바로우(300g), ②가니쉬(75g), ③발사믹 소스(120g) <br> <b>・특징 </b> : 최현석 셰프의 특별한 꿔바로우! 발사믹 식초와 올리브, 딸기를 첨가해 완벽한 맛의 밸런스를 잡았습니다', 
+        0, 1, 0, sysdate, sysdate, 9999, 0, '', 0, '', 'main.jpg', 'subimg1.jpg', 'subimg2.jpg', 'subimg3.jpg', 'subimg4.jpg', 1, '', '');
 
 --sej
 --장바구니

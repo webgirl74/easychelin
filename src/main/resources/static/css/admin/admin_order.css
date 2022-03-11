@@ -1,0 +1,68 @@
+/* orderView테이블 */
+.orderView {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  /* border-top: 1px solid #eee; */
+}
+.orderView tr {
+  border-bottom: 1px solid #eee;
+}
+.orderView th {
+  background-color: #fff;
+  text-align: left;
+  /* font-size: 16px;
+  color: #333; */
+  font-weight: 400;
+  padding: 10px 0;
+}
+.orderView td {
+  padding: 10px;  
+  /* text-align: left; */
+}
+
+/* orderView end */
+
+
+/* 리스트테이블 */
+.listTable {  
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-top: 1px solid #eee;
+}
+.listTable tr {
+  border-bottom: 1px solid #eee;
+}
+.listTable th {
+  background-color: #000;
+  color: #fff;
+  padding: 7px;
+  text-align: center;
+}
+.listTable td {
+  padding: 7px;  
+  text-align: center;
+}
+
+/* 작은버튼(주문목록,적립금목록) */
+.sBtn {
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  color: #333;
+  font-size: 12px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+/* 적립금 */
+.pointPrice {
+  font-size: 30px;
+  color: #000;
+  margin-left: 30px;
+}
+.pointUse {
+  color: red;
+}
