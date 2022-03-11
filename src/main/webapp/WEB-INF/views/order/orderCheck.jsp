@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
   </head>
   <body>
     <!-- 헤더 -->
-    <div id="header"></div>
+    <c:import url="../header.jsp" />
   
     <!-- 메인 -->
     <div class="container">
@@ -61,6 +62,6 @@
 
     
   <!-- 푸터 -->
-  <div id="footer"></div>
+    <c:import url="../footer.jsp" />
 </body>
 </html>

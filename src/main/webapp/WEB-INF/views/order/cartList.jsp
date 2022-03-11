@@ -19,19 +19,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="js/jquery-2.2.4.min.js"></script>
 
-    <script>
-        $(document).ready(function(){
-            $('#header').load("/header.html");
-            $('#quickMenu').load("/quickMenu.html");
-            $('#footer').load("/footer.html");
-        });
-
-        function callSub() {
-            location.href="/member/login.html";
-            return false;
-        }
-    </script>
-
     <!-- CSS -->
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/order/cartList.css">
@@ -55,7 +42,7 @@
       <!-- step이미지 -->
       <div><img src="/img/order/step_01.png" alt=""></div>
 
-      <form action="/order/order.html">
+      <form action="/order/cartListAction"  name="cartListAction">
         <!-- 상단 상품 선택/삭제기능 -->
           <div class="cartSelect">
             <div class="inner_select">

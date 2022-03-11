@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.springboot.dao.ICartDao"> 
+
+	<!-- 카트 추가 -->
+	<insert id="addCart">
+	
+		insert into cart(cart_idx, user_idx, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
+		values(cart_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{para9}) 
+	
+	</insert>
+	
+	
+	<!-- 카트 삭제 -->
+	<delete id="deleteCart">
+	
+		delete from cart where cart_idx = #{cart_idx}
+	
+	</delete>
+	
+	<!-- 카트 수량 수정 -->
+	<update id="modifyCount">
+	
+		update cart set cart_pcs=#{cart_pcs} where cart_idx = #{cart_idx}
+	
+	</update>
+	
+	 <!-- 카트 목록 -->
+	 <select id="getCart" resultType="com.study.springboot.dto.CartDTO">
+	<!-- 
+		select cartId, memberId, bookId, bookCount, bookName, bookPrice, bookDiscount
+		from cart a left outer join vam_book b on a.bookId = b.bookId
+		where memberId = #{memberId}	
+	 -->
+	</select>
+	
+	<!-- 카트 확인 -->
+	<select id="checkCart" resultType="com.study.springboot.dto.CartDTO">
+	
+		select * from cart 
+		where user_idx = #{user_idx} and goods_idx = #{goods_idx}
+	
+	</select>
+	
+	
+</mapper>
