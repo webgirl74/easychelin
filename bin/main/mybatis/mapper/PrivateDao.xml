@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IPrivateDao">
+
+	<select id="private_list" resultType="com.study.springboot.dto.PrivateDto">
+		select * from easyPolicy order by easyPolicy_idx desc
+	</select>
+	
+	<select id="private_content" resultType="com.study.springboot.dto.PrivateDto">
+		select * from easyPolicy where easyPolicy_idx=#{param1}
+	</select>	
+	
+	<insert id="private_write" parameterType="com.study.springboot.dto.PrivateDto">
+		insert into easyPolicy values 
+		(terms_seq.nextval, #{easyPolicy_title}, #{easyPolicy_content}, sysdate, #{easyPolicy_noname})
+	</insert>
+	
+	<delete id="private_delete">
+		delete from easyPolicy where easyPolicy_idx=#{param1}
+	</delete>
+	
+	<update id="private_modify">
+		update easyPolicy set easyPolicy_title=#{easyPolicy_title}, easyPolicy_content=#{easyPolicy_content}, easyPolicy_noname=#{easyPolicy_noname} where easyPolicy_idx=#{easyPolicy_idx}
+	</update>
+	
+</mapper>    
+
+

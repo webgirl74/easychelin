@@ -39,13 +39,13 @@
     <!-- right -->
     <div class="bbs_wrap">
       <!-- 현재위치 -->
-      <location>홈 > 정책관리 > 정책등록</location>
+      <location>홈 > 정책관리 > 정책수정</location>
       <!-- 타이틀 -->
-      <div class="pageTitle">::: 정책등록 </div>
+      <div class="pageTitle">::: 정책수정 </div>
 
-      <!-- 배너등록테이블 -->
+      <!-- 정책등록테이블 -->
       <br>
-      <form action="" method="post" name="frm" id="frm">
+      <form action="/admin/info/admin_infoPrivateWriteAction" method="post" name="privateFrm" id="privateFrm">
       <table class="schTable">
         <col width="10%" class="labelTxt">
         <col width="85%">
@@ -58,7 +58,7 @@
         <tr>
           <td>내용</td>
           <td>
-            <textarea name="ir1" id="ir1" rows="10" cols="150"></textarea>            
+            <textarea id="editor4" name="easyPolicy_content" rows="10" cols="150"></textarea>        
           </td>
         </tr>
         <tr>
@@ -69,32 +69,11 @@
         </tr>
       </table>
       </form>
-      <!-- 배너등록테이블 end -->
       
-
-      <!-- textarea 아래 첨부 -->
-      <script type="text/javascript">
-        var oEditors = [];
-        nhn.husky.EZCreator.createInIFrame({
-         oAppRef: oEditors,
-         elPlaceHolder: "ir1",  //textarea ID입력
-         sSkinURI: "/smarteditor/SmartEditor2Skin.html",  //smartEditor2Skin.html경로입력
-         fCreator: "createSEditor2",
-         htParams : {
-           bUseToolbar : true,  //툴바 사용 여부(true:사용 / false:사용하지 않음)
-           bUseVerticalResizer : false, //입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-           bUseModeChanger : false  //모드탭(Editor | HTML | TEXT) 사용여부(true:사용/ false:사용하지 않음)
-         }
-        });
-      </script>
-      <script>
-        var frm=document.getElementById("frm"); //작성폼네임
-        function save(){
-          oEditors.getById["testContent"].exec("UPDATE_CONTENTS_FIELD", []);  //스마트에디터 값을 텍스트컨텐츠로 전달
-          frm.submit(); //submit
-          return;
-        }
-      </script>
+      <!-- 에디터스크립트 -->
+      <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
+ 	  <script>CKEDITOR.replace('editor4');</script>
+      <!-- 정책등록테이블 end -->
       
 
     </div> <!--bbs_wrap-->

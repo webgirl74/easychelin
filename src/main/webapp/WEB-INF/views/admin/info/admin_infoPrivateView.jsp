@@ -47,60 +47,31 @@
 
       <!-- 배너등록테이블 -->
       <br>
-      <form action="" method="post" name="frm" id="frm">
       <table class="schTable">
         <col width="10%" class="labelTxt">
         <col width="85%">
         <tr>
           <td>제목</td>
-          <td>
-            <input type="text" name="easyPolicy_title" style="width:60%;">
-          </td>
+          <td>${ private_dto.easyPolicy_title }</td>
         </tr>
         <tr>
           <td>내용</td>
-          <td>
-            <textarea name="ir1" id="ir1" rows="10" cols="150"></textarea>            
-          </td>
+          <td>${ private_dto.easyPolicy_content }</td>
         </tr>
         <tr>
           <td>등록일</td>
-          <td>2021-01-01</td>
+          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ private_dto.easyPolicy_date }" /></td>
         </tr>
         <tr>
           <td colspan="2" class="btnTd">
-            <input type="submit" value="수정" class="btnSch">
+            <input type="button" value="수정" class="btnSch" onclick="location.href='/admin/info/admin_infoPrivateModify?easyPolicy_idx='+${private_dto.easyPolicy_idx};">
+            <input type="button" value="삭제" class="btnSch" onclick="location.href='/admin/info/admin_infoPrivateDeleteAction?easyPolicy_idx='+${private_dto.easyPolicy_idx};">
+            <input type="submit" value="목록" class="btnSch" onclick="location.href='/admin/info/admin_infoPrivate';">
             <input type="button" value="취소" class="btnSch2" onclick="javascript:history.back(-1);">
           </td>
         </tr>
       </table>
-      </form>
       <!-- 배너등록테이블 end -->
-      
-
-      <!-- textarea 아래 첨부 -->
-      <script type="text/javascript">
-        var oEditors = [];
-        nhn.husky.EZCreator.createInIFrame({
-         oAppRef: oEditors,
-         elPlaceHolder: "ir1",  //textarea ID입력
-         sSkinURI: "/smarteditor/SmartEditor2Skin.html",  //smartEditor2Skin.html경로입력
-         fCreator: "createSEditor2",
-         htParams : {
-           bUseToolbar : true,  //툴바 사용 여부(true:사용 / false:사용하지 않음)
-           bUseVerticalResizer : false, //입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-           bUseModeChanger : false  //모드탭(Editor | HTML | TEXT) 사용여부(true:사용/ false:사용하지 않음)
-         }
-        });
-      </script>
-      <script>
-        var frm=document.getElementById("frm"); //작성폼네임
-        function save(){
-          oEditors.getById["testContent"].exec("UPDATE_CONTENTS_FIELD", []);  //스마트에디터 값을 텍스트컨텐츠로 전달
-          frm.submit(); //submit
-          return;
-        }
-      </script>
       
 
     </div> <!--bbs_wrap-->

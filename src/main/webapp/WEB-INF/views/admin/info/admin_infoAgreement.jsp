@@ -24,7 +24,7 @@
     <script>
 
         function callWrite() {
-          location.href="/admin/info/admin_infoAgreementWrite.html";
+          location.href="/admin/info/admin_infoAgreementWrite";
           return false;
         }
     </script>
@@ -52,32 +52,31 @@
       <!-- 리스트 테이블 -->
       <table class="listTable">
         <col width="10%">
-        <col width="10%">
         <col>
         <col width="10%">
         <tr>
-          <th>
-            <!-- 클릭 시 전체 석택기능 넣어주세요. -->
-            <input type="checkbox" name="check" id="check" value="no"><label for="check">&nbsp;</label></th>          
-          </th>
           <th>번호</th>
           <th>제목</th>
           <th>등록일</th>
         </tr>
+        
+        
+        <!--  varStatus="status" : 임의로 번호넘버링하기 ${ status.count } -->
+        <c:forEach var="dto" items="${ terms_list }" varStatus="status">
         <tr>
+          <td>${ status.count }</td>
+          <td><a href="/admin/info/admin_infoAgreementView?terms_idx=${ dto.terms_idx }">${ dto.terms_title }</a></td>
           <td>
-            <input type="checkbox" name="check" id="check" value="no"><label for="check">&nbsp;</label>
+            <fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.terms_date }" />
           </td>
-          <td>1</td>
-          <td><a href="/admin/info/admin_infoAgreementView.html?6?0">서비스 이용 약관 동의</a></td>
-          <td>2021-12-25</td>
         </tr>
+        </c:forEach>
+        
       </table>
       
       <!-- 하단버튼/페이지네이션 -->
       <div class="bottom">
         <!-- 버튼 -->        
-          <input type="button" value="선택삭제" class="btnSch2">
           <input type="button" value="약관등록" class="btnSch" onclick="javascript:callWrite();">
       </div>
 

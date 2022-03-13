@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
 <%@ page trimDirectiveWhitespaces="true" %>
 
 <!DOCTYPE html>
@@ -25,12 +25,11 @@
     <script type="text/javascript" src="/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.js"></script>
 
-
     <link href="/css/admin/admin_common.css" rel="stylesheet" type="text/css" />
     <link href="/css/admin/admin_gnb.css" rel="stylesheet" type="text/css" />
 
 </head>
-<body>  
+<body>
   
   <div class="adminBox">
     <!-- left Menu -->
@@ -40,39 +39,33 @@
     <!-- right -->
     <div class="bbs_wrap">
       <!-- 현재위치 -->
-      <location>홈 > 정책관리 > 약관등록</location>
+      <location>홈 > 정책관리 > 정책수정</location>
       <!-- 타이틀 -->
-      <div class="pageTitle">::: 약관등록 </div>
+      <div class="pageTitle">::: 정책수정 </div>
 
-      <!-- 약관등록테이블 -->
+      <!-- 정책수정테이블 -->
       <br>
-      <form action="/admin/info/admin_infoAgreementWriteAction" method="post" name="termFrm" id="termFrm">
+      <form action="/admin/info/admin_infoPrivateWriteAction" method="post" name="privateFrm" id="privateFrm">
+      <input type="hidden" name="easyPolicy_idx" value="${ private_dto.easyPolicy_idx }">
+      <input type="hidden" name="easyPolicy_noname" value="${ private_dto.easyPolicy_noname }">
       <table class="schTable">
         <col width="10%" class="labelTxt">
         <col width="85%">
         <tr>
           <td>제목</td>
           <td>
-            <input type="text" name="terms_title" style="width:60%;">
+            <input type="text" name="easyPolicy_title" style="width:60%;" value="${ private_dto.easyPolicy_title }">
           </td>
         </tr>
         <tr>
           <td>내용</td>
-          <td> 
-            <textarea id="editor4" name="terms_content" rows="10" cols="150"></textarea>           
-          </td>
-        </tr>
-        <tr>
-          <td>동의</td>
           <td>
-            <input type="radio" checked name="member_email_receive" value=1 >
-            <input class="check" type="radio" id="terms_opt1" name="terms_opt" value=1  checked><label for="terms_opt1">필수&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input class="check" type="radio" id="terms_opt2" name="terms_opt" value=2 ><label for="terms_opt2">선택</label>            
+            <textarea id="editor4" name="easyPolicy_content" rows="10" cols="150">${ private_dto.easyPolicy_content }</textarea>        
           </td>
         </tr>
         <tr>
           <td colspan="2" class="btnTd">
-            <input type="submit" value="등록" class="btnSch">
+            <input type="submit" value="수정" class="btnSch">
             <input type="button" value="취소" class="btnSch2" onclick="javascript:history.back(-1);">
           </td>
         </tr>
@@ -82,7 +75,7 @@
       <!-- 에디터스크립트 -->
       <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
  	  <script>CKEDITOR.replace('editor4');</script>
-      <!-- 배너등록테이블 end -->
+      <!-- 정책수정테이블 end -->
       
 
     </div> <!--bbs_wrap-->

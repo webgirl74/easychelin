@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.ITermsDao">
+
+	<select id="terms_list" resultType="com.study.springboot.dto.TermsDto">
+		select * from terms order by terms_idx desc
+	</select>
+	
+	<select id="terms_content" resultType="com.study.springboot.dto.TermsDto">
+		select * from terms where terms_idx=#{param1}
+	</select>	
+	
+	<insert id="terms_write" parameterType="com.study.springboot.dto.TermsDto">
+		insert into terms values 
+		(terms_seq.nextval, #{terms_title}, #{terms_content}, #{terms_opt}, sysdate, #{terms_noname})
+	</insert>
+	
+	<delete id="terms_delete">
+		delete from terms where terms_idx=#{param1}
+	</delete>
+	
+	<update id="terms_modify">
+		update terms set terms_title=#{terms_title}, terms_content=#{terms_content}, terms_opt=#{terms_opt}, terms_noname=#{terms_noname} where terms_idx=#{terms_idx}
+	</update>
+</mapper>    
+
+
