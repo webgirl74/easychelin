@@ -294,9 +294,9 @@ values (goods_seq.nextval, 1, 03, '최현석의 중앙감속기', '발사믹 꿔
 --장바구니
 drop table cart;
 create table cart(
-    cart_idx        number(4) not null  primary key,    --카드번호
-    user_idx        number(4) not null,     --회원아이디
-    goods_idx       number(4),              --상품아이디
+    cart_idx        number(4) not null  primary key,    --카트번호
+    user_id         varchar2(20),           --회원아이디
+    goods_idx       number(4),              --상품아이디 
     cart_img        varchar2(255),          --상품이미지
     cart_brand      varchar2(60),           --상품브랜드   
     cart_name       varchar2(100),          --상품명
@@ -310,8 +310,14 @@ create sequence cart_seq;
 
 select * from cart;
 
-insert into cart(cart_idx, user_idx, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
-values (cart_seq.nextval, 0001, 0120, 'img.jpg', '스윗밸런스', '샐러드 6종', 5, 9600, '', '');
+insert into cart(cart_idx, user_id, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
+values (cart_seq.nextval, 'easychelin', 0120, 'img.jpg', '스윗밸런스', '샐러드 6종', 5, 9600, '', '');
+insert into cart(cart_idx, user_id, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
+values (cart_seq.nextval, 'hong1234', 0130, 'img2.jpg', '스윗밸런스2', '샐러드 6종2', 1, 100, '', '');
+
+DELETE FROM cart WHERE cart_idx = 3;
+
+commit;
 
 
 --주문
