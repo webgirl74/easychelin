@@ -272,7 +272,7 @@ ul li {
     justify-content: space-around;
     align-items: center;
 }
-#inputText {
+#keyword {
     width: 240px;
     height: 30px;
     padding-left: 15px;
@@ -282,20 +282,21 @@ ul li {
     background-color: #eee;
     font-size: 12px;
 }
-#inputText:focus {
+#keyword:focus {
     outline-style: none;
     border: 2px solid #eee;
     background-color: white;
 }
 #delBtn {
     position: relative;
-    top: -2.5px;
-    left: -60px;
+    top: 2.5px;
+    left: -105px;
     border: none;
     background-color: transparent;
 }
 #searchBtn {
     position: relative;
+    top: 9px;
     left: -50px;
     opacity: 0.8;
 }
