@@ -16,7 +16,7 @@ import com.study.springboot.dto.GoodsCateDto;
 import com.study.springboot.service.GoodsCateService;
 
 @Controller
-public class MyControll_adGoods {
+public class MyController_adGoods {
 
 	@Autowired
 	private GoodsCateService goodsCateService;

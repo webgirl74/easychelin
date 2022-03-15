@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IGoodsCateDao">
+
+	<!-- 카테고리 등록  -->
+	<insert id="addCate">
+		<!-- 여유필드 처리방법을 몰라 우선 null이되게 하드코딩(?) 해둠 -->
+		INSERT INTO goodsCate(goodsCate2_idx, goodsCate1, goodsCate2_name, goodsCate2_date, goodsCate2_noname1, goodsCate2_noname2) 
+		VALUES ( goodsCate_seq.nextval, #{param1}, #{param2}, sysdate, '' , '')
+	</insert>
+	
+	<!-- 카테고리 목록 -->
+	<select id="goodsCate_list" resultType="com.study.springboot.dto.GoodsCateDto">
+		SELECT * FROM goodsCate order by goodsCate2_idx asc
+	</select>    
+	
+	<!-- 카테고리 보기 -->
+	<select id="viewCate" resultType="com.study.springboot.dto.GoodsCateDto">
+		SELECT * FROM goodsCate WHERE goodsCate2_idx=#{ goodsCate2_idx }
+	</select>
+	
+	<!-- 카테고리 수정 -->
+	<update id="updateCate">
+		UPDATE goodsCate SET goodsCate2_name=#{param3} WHERE goodsCate2_idx = #{param2}
+	</update>
+	
+	<!-- 카테고리 삭제 -->
+	<delete id="deleteCate">
+		DELETE FROM goodsCate WHERE goodsCate2_idx=#{param3}
+	</delete>
+</mapper>     
