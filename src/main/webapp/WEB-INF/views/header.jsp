@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +33,19 @@
             obj.parentNode.querySelector('input').value = ""
         }
     </script>
-
+    
+    <!-- 검색 시 빈칸 허용 x -->
+    <script>
+    	function checkValue() {
+	    	if(!document.goodsSrh.keyword.value) { //empty: null, 길이 0인지?
+	    		alert("검색어를 입력해주세요");
+	    		document.getElementById('keyword').focus();
+	    		return false; // submit전송이 안됨
+	    	}
+	    	
+    		return true; // submit 전송됨
+    	}
+	</script>
 </head>
 <body>
 	<!-- 팝업배너 -->
@@ -58,16 +70,12 @@
                         <div class="topMenu">
                             <ul>
                                 <!-- 로그인 전 -->
-                                <c:if test="${ empty user_id }">
                                 <li class="join"><a href="/member/memberAgree">회원가입</a></li>
                                 <li class="login"><a href="/member/login">로그인</a></li>
-                                </c:if>
                                 <!-- //로그인 전 -->
                                 <!-- 로그인 후 -->
-                                 <c:if test="${ not empty user_id }">
-                                   <li class="myName"><a href="/mypage/orderList.html?0">홍길동 ${user_name}님</a></li>
-                                    <li class="logout"><a href="/member/logoutAction">로그아웃</a></li> 
-                                     </c:if>
+                                    <!-- <li class="myName"><a href="/mypage/orderList.html?0">홍길동님</a></li>
+                                    <li class="logout"><a href="#">로그아웃</a></li> -->
                                 <!-- //로그인 후 -->
                                 
                                 <!-- 강사님 방식의 로그인 전 후 -->
@@ -79,15 +87,15 @@
 							    	<li class="login"><a href="/member/login">로그아웃</a></li>
 							    </c:if> --%>
 							    
-                                <li class="memberCenter"><a href="/customer/noticeList.html?0">고객센터&nbsp;<img src="/img/header/dropdown_arrow.png" width="10" height="auto" style="margin-top: -3px;"></a>
+                                <li class="memberCenter"><a href="/customer/noticeList">고객센터&nbsp;<img src="/img/header/dropdown_arrow.png" width="10" height="auto" style="margin-top: -3px;"></a>
                                     <ul>
-                                        <li><a href="/customer/noticeList.html?0">공지사항</a></li>
+                                        <li><a href="/customer/noticeList">공지사항</a></li>
                                         <br>
-                                        <li><a href="/customer/faqList.html?1">자주하는 질문</a></li>
+                                        <li><a href="/customer/faqList">자주하는 질문</a></li>
                                         <br>
-                                        <li><a href="/mypage/qnaWrite.html?2">1:1 문의</a></li>
+                                        <li><a href="/mypage/qnaWrite">1:1 문의</a></li>
                                         <br>
-                                        <li><a href="/customer/eventList.html?3">이벤트</a></li>
+                                        <li><a href="/customer/eventList">이벤트</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -171,16 +179,17 @@
                                         
                     <!-- 검색창 -->
                     <div class="search">
-                        <!-- 검색기능 구현 X  -->
-                        <input type="text" id="inputText" placeholder="검색어를 입력해주세요." >
-                        <!-- 삭제버튼 검색창 입력전 보이지않다가 입력후 보이는 기능 구현 X  -->
+                        <form action="/goods/goodsList" name="goodsSrh" method="post" onsubmit="return checkValue();">
+	                        <input type="text" name="keyword" id="keyword" placeholder="검색어를 입력해주세요." >
+	                        <input type="image" id="searchBtn" src="/img/header/nav/ico_search_x2.jpg" alt="검색하기" width="30" height="auto">    
+	                    </form>    
+	                    <!-- 삭제버튼 검색창 입력전 보이지않다가 입력후 보이는 기능 구현 X  -->
                         <button id="delBtn" onClick="clearInput(this)" ><img src="/img/header/nav/ico_search_del.png" alt=""></button>
-                        <input type="image" id="searchBtn" src="/img/header/nav/ico_search_x2.jpg" alt="검색하기" width="30" height="auto">    
                     </div>
 
                     <!-- 아이콘 -->
                     <div class="event">
-                        <a href="/customer/eventList.html?3">
+                        <a href="/customer/eventList">
                             <img src="/img/header/nav/event_none.png" onmouseover="this.src='/img/header/nav/event_over.png'" onmouseout="this.src='/img/header/nav/event_none.png'" alt="이벤트">
                         </a>
                     </div>
@@ -190,7 +199,7 @@
                         </a>
                     </div>
                     <div class="mypage">
-                        <a href="/mypage/orderList.html?0">
+                        <a href="/mypage/orderList">
                             <img src="/img/header/nav/mypage_none.png" onmouseover="this.src='/img/header/nav/mypage_over.png'" onmouseout="this.src='/img/header/nav/mypage_none.png'" alt="마이페이지">
                         </a>
                     </div>
