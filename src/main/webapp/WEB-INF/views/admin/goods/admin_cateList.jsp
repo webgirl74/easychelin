@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>     
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<%@ page trimDirectiveWhitespaces="true" %>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +20,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 
+    <script>
+    
+    	/* 전체선택 */
+	    function selectAll(selectAll)  {
+	    	const checkboxes 
+	    	     = document.getElementsByName('category');
+	    	  
+	    	checkboxes.forEach((checkbox) => {
+	    	  checkbox.checked = selectAll.checked;
+	    	})
+    	}
+	    
+
+    </script>
+
     <link href="/css/admin/admin_common.css" rel="stylesheet" type="text/css" />
     <link href="/css/admin/admin_gnb.css" rel="stylesheet" type="text/css" />
     <link href="/css/admin/admin_goods.css" rel="stylesheet" type="text/css" />
@@ -28,10 +42,13 @@
     
 </head>
 <body>
+  <!-- 헤더 -->
+  <c:import url="../admin_gnb.jsp" />  
+  
   
   <div class="adminBox">
     <!-- left Menu -->
-    <div id="left" class="aside"><c:import url="./admin_left_goods.jsp" /></div>
+    <div class="aside"><c:import url="../admin_left_goods.jsp" /></div>
     <!-- // left Menu -->
     
     <!-- right -->
@@ -63,7 +80,7 @@
       </table>
       <!-- 검색테이블 end -->
 
-      <!-- 리스트 테이블 -->
+<%--       <!-- 리스트 테이블 -->
       <table class="listTable">
         <col width="10%">
         <col width="10%">
@@ -73,8 +90,8 @@
         <col width="10%">
         <tr>
           <th>
-            <!-- 클릭 시 전체 석택기능 넣어주세요. -->
-            <input type="checkbox" name="check" id="check" value="no"><label for="check">&nbsp;</label></th>          
+            <!-- 클릭 시 전체 선택기능 넣어주세요. -->
+            <input type="checkbox" name="selectAll" id="check" value="selectAll" onclick='selectAll(this)'><label for="check">&nbsp;</label>     
           </th>
           <th>번호</th>
           <th>1차 카테고리명</th>
@@ -82,17 +99,76 @@
           <th>2차 카테고리명</th>
           <th>등록일</th>
         </tr>
+        <c:forEach var="dto" items="${ goodsCate_list }" varStatus="status">
+          <tr>
+          	  <td><input type="checkbox" name="category" id="${ dto.goodsCate2_idx }" value="${ dto.goodsCate2_idx }"><label for="${ dto.goodsCate2_idx }">&nbsp;</label></td>
+	          <td>${ status.count }</td>
+	          <td>
+	              <c:set var="goodsCate1_name" value="${ dto.goodsCate1 }" />
+	              <c:if test="${dto.goodsCate1 eq 1}">
+			 	      밀키트
+	              </c:if>
+	              <c:if test="${dto.goodsCate1 eq 2}">
+			          신선식품
+	              </c:if>
+	              <c:if test="${dto.goodsCate1 eq 3}">
+			 	      냉동식품
+	              </c:if>
+	              <c:if test="${dto.goodsCate1 eq 4}">
+			   	      건강식품
+	              </c:if>
+	          </td>
+	          <td>${ dto.goodsCate2_idx }</td>
+	          <td>${ dto.goodsCate2_name }</td>
+	          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.goodsCate2_date }" /></td>
+      	  </tr>
+        </c:forEach>
+	  </table> --%>
+	  
+	  <!-- 리스트 테이블2 -->
+      <table class="listTable">
+        <col width="10%">
+        <col width="10%">
+        <col width="20%">
+        <col width="20%">
+        <col>
+        <col width="10%">
         <tr>
-          <td>
-            <input type="checkbox" name="check" id="check" value="no"><label for="check">&nbsp;</label>
-          </td>
-          <td>1</td>
-          <td>밀키트</td>
-          <td>0001</td>
-          <td>샐러드</td>
-          <td>2017-08-16</td>
+          <th>번호</th>
+          <th>1차 카테고리명</th>
+          <th>2차 카테고리번호</th>
+          <th>2차 카테고리명</th>
+          <th>등록일</th>
+          <th colspan="2"></th>
         </tr>
-      </table>
+        <c:forEach var="dto" items="${ goodsCate_list }" varStatus="status">
+          <tr>
+	          <td>${ status.count }</td>
+	          <td>
+	              <c:set var="goodsCate1_name" value="${ dto.goodsCate1 }" />
+	              <c:if test="${dto.goodsCate1 eq 1}">
+			 	      밀키트
+	              </c:if>
+	              <c:if test="${dto.goodsCate1 eq 2}">
+			          신선식품
+	              </c:if>
+	              <c:if test="${dto.goodsCate1 eq 3}">
+			 	      냉동식품
+	              </c:if>
+	              <c:if test="${dto.goodsCate1 eq 4}">
+			   	      건강식품
+	              </c:if>
+	          </td>
+	          <td>${ dto.goodsCate2_idx }</td>
+	          <td>${ dto.goodsCate2_name }</td>
+	          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.goodsCate2_date }" /></td>
+	          <td>
+	          	<a href="admin_cateModify?goodsCate2_idx=${dto.goodsCate2_idx}" onclick="window.open(this.href, '_blank', 'width=800, height=435'); return false;">수정</a>
+	          </td>
+	          <td><a href="cateDeleteAction?goodsCate2_idx=${dto.goodsCate2_idx}">삭제</a></td>
+      	  </tr>
+        </c:forEach>
+	  </table>
       
       <!-- 하단버튼/페이지네이션 -->
       <div class="bottom">

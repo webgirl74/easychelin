@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>     
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<%@ page trimDirectiveWhitespaces="true" %>  
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +36,11 @@
                 }
             });
         });
-
+        
+        // 취소버튼 클릭 시
+       	function goBack() {
+        	window.history.back();
+        }
     </script>
 
     <link href="/css/admin/admin_common.css" rel="stylesheet" type="text/css" />
@@ -49,9 +51,13 @@
 
 </head>
 <body>
+  <!-- 헤더 -->
+  <c:import url="../admin_gnb.jsp" />
+  
+  
   <div class="adminBox">
     <!-- left Menu -->
-    <div id="left" class="aside"><c:import url="./admin_left_goods.jsp" /></div>
+    <div class="aside"><c:import url="../admin_left_goods.jsp" /></div>
     <!-- // left Menu -->
     
     <!-- right -->
@@ -61,14 +67,14 @@
       <!-- 타이틀 -->
       <div class="pageTitle">::: 카테고리등록 </div>
 
-    <form action="" method="post" name="frm" id="frm">
+    <form action="/admin/goods/cateWriteAction" method="post" name="addCate" id="addCate">
       <!-- 상품정보입력 테이블 -->
       <table class="orderView">
         <col width="10%" class="labelTxt">
         <col width="85%">
         <tr>
           <th colspan="6">
-            | 2차 카테고리 등록/수정
+            | 2차 카테고리 등록
           </th>
         </tr>
         <tr>
@@ -86,7 +92,7 @@
         <tr>
           <td>카테고리명</td>
           <td>
-            <input type="text" name="goods_brand" style="width:70%;">
+            <input type="text" name="goodsCate2_name" style="width:70%;">
           </td>
         </tr>
       </table>
@@ -95,7 +101,7 @@
 
       <div style="text-align:center;margin-bottom:100px;">
         <input type="submit" value="등록" class="btnSch">
-        <input type="button" value="취소" class="btnSch2">
+        <input type="button" value="취소" class="btnSch2" onclick="goBack();">
       </div>
     </form>
 
