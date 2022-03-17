@@ -104,7 +104,7 @@ values (faq_seq.nextval, 1, '배송/포장은 어떻게 하나요?', '배송 및
 drop table goodsQna;
 CREATE TABLE goodsQna (
     goodsQna_idx            number(4)       PRIMARY KEY,        --상품문의번호
-    goods_idx               number(4)       not null,           --상품번호
+    goods_idx               number(4),           				--상품번호
     goods_opt               number(1)       default 0,          --공지 checked : 1
     goodsQna_category       number(1)       default 0,          --카테고리(1:상품 2:배송 3:주문/결제/대량주문 4:교환/반품 5:기타)
     goodsQna_title          varchar2(100),                      --제목
@@ -163,7 +163,7 @@ values (qna_seq.nextval, 2201210001, 1, '배송은 언제되나요?', '배송 �
 drop table review;
 CREATE TABLE review ( 
     review_idx      number(4)   PRIMARY KEY,        --상품평번호
-    buy_idx         number(10)  not null,           --주문번호
+    buy_no          varchar2(50)  not null,         --주문번호
     review_star     number(1),                      --평점(1:매우만족 2:만족 3:보통 4:불만 5:매우불만)
     review_title    varchar2(100),                  --제목
     review_content  varchar2(2000),                 --내용
@@ -287,7 +287,7 @@ INSERT INTO goods (goods_idx, goodsCate1, goodsCate2_idx, goods_brand, goods_nam
 values (goods_seq.nextval, 1, 03, '최현석의 중앙감속기', '발사믹 꿔바로우', '가니쉬를 곁들인 이색 중식', '', '1', '1', '', 8800, 7920, 5, '1', '', '1', '', '495g', 
         '- 꿔바로우: 돼지고기, 밀, 대두, 쇠고기 함유 <br> - 발사믹소스: 이산화황, 대두, 밀 함유 <br> - 본 제품은 알류, 우유, 메밀, 땅콩, 고등어, 게, 새우, 복숭아, 토마토, 호두, 닭고기, 오징어, 조개류(굴, 전복, 홍합 포함), 아황산류, 잣을 사용한 제품과 같은 제조 시설에서 제조하고 있습니다.',
         '1', '판매단위', '1팩', '포장타입', '냉동/스티로폼', '성수동의 퓨전 중식 레스토랑, 중앙감속기와 함께 양식과 중식의 오묘하고 조화로운 만남을 경험해 보세요. 이번에는 중앙감속기의 시그니처 메뉴 중 하나인 발사믹 꿔바로우를 준비했어요. 두툼하게 썰어 바삭하게 튀겨낸 꿔바로우에 발사믹 베이스의 새콤달달한 소스를 곁들여 색다른 풍미를 맛볼 수 있는 제품이에요. 딸기, 올리브 등의 발사믹과 잘 어우러지는 가니쉬를 선택해 더욱 특별한 맛을 완성했지요. 프라이팬에 휘리릭 볶아내면, 매장에서 즐기던 근사한 퓨전 중식도 손쉽게 즐길 수 있을 거예요.',
-        '<b>・중량 </b> : 1팩(495g) <br> <b>・구성 </b> : ①꿔바로우(300g), ②가니쉬(75g), ③발사믹 소스(120g) <br> <b>・특징 </b> : 최현석 셰프의 특별한 꿔바로우! 발사믹 식초와 올리브, 딸기를 첨가해 완벽한 맛의 밸런스를 잡았습니다', 
+        '<b>?중량 </b> : 1팩(495g) <br> <b>?구성 </b> : ①꿔바로우(300g), ②가니쉬(75g), ③발사믹 소스(120g) <br> <b>?특징 </b> : 최현석 셰프의 특별한 꿔바로우! 발사믹 식초와 올리브, 딸기를 첨가해 완벽한 맛의 밸런스를 잡았습니다', 
         0, 1, 0, sysdate, sysdate, 9999, 0, '', 0, '', 'main.jpg', 'subimg1.jpg', 'subimg2.jpg', 'subimg3.jpg', 'subimg4.jpg', 1, '', '');
 
 --sej
@@ -313,7 +313,12 @@ select * from cart;
 insert into cart(cart_idx, user_id, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
 values (cart_seq.nextval, 'easychelin', 0120, 'img.jpg', '스윗밸런스', '샐러드 6종', 5, 9600, '', '');
 insert into cart(cart_idx, user_id, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
-values (cart_seq.nextval, 'hong1234', 0130, 'img2.jpg', '스윗밸런스2', '샐러드 6종2', 1, 100, '', '');
+values (cart_seq.nextval, 'easychelin', 0130, 'img.jpg', '스윗밸런스2', '샐러드 6종2', 1, 1000, '', '');
+insert into cart(cart_idx, user_id, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
+values (cart_seq.nextval, 'easychelin', 0140, 'img.jpg', '스윗밸런스3', '샐러드 6종3', 1, 2000, '', '');
+
+insert into cart(cart_idx, user_id, goods_idx, cart_img, cart_brand, cart_name, cart_pcs, cart_subPrice, cart_noname1, cart_noname2)
+values (cart_seq.nextval, 'hong1234', 0130, 'img2.jpg', '스윗밸런스2', '샐러드 6종2', 1, 1000, '', '');
 
 DELETE FROM cart WHERE cart_idx = 3;
 
@@ -323,7 +328,8 @@ commit;
 --주문
 drop table buy;
 create table buy(
-    buy_idx         number(10)  not null  primary key,    --주문번호
+    buy_idx         number(10)  not null  primary key,    --주문인덱스번호
+    buy_no          varchar2(50),                   --주문번호
     user_idx        number(4)   not null,           --회원아이디
     receive_name    varchar2(20),                   --수취인 이름
     receive_phone   varchar2(20),                   --수취인 전화번호
@@ -350,14 +356,39 @@ create sequence buy_seq;
 
 select * from buy;
 
-insert into buy(buy_idx, user_idx, receive_name, receive_phone, receive_zip, receive_add, 
+insert into buy(buy_idx, buy_no, user_idx, receive_name, receive_phone, receive_zip, receive_add, 
 buy_message, buy_totalPrice, buy_usePoint, buy_useCupon, buy_fare, buy_payment, 
 buy_paymentState, buy_paymentSort,
 buy_date,buy_state, buy_returnState, buy_deliveryNo, buy_noname1, buy_noname2)
-values (buy_seq.nextval, 0001, '홍길동', '01012345678', '123-123', '서울...', '문앞', 13800, 1000, 0, 3500, 9300, 
+values (buy_seq.nextval, '20220317143805104', 0001, '홍길동', '01012345678', '123-123', '서울...', '문앞', 13800, 1000, 0, 3500, 9300, 
 0, 0, 
 sysdate, 1, 1, '', '', '');
 
+commit;
+
+--주문상세
+drop table buyDetail;
+create table buyDetail(
+	buyDetail_idx		number(4)   not null    primary key,  --주문상세번호   
+	buy_idx         	number(4),    	                --주문인덱스
+    goods_idx       	number(4),              		--구매상품아이디 
+    buyDetail_pcs       number(4),              		--구매상품수량
+    buyDetail_subPrice  number(10),             		--구매상품단가(판매가)
+	buyDetail_point		char(1) DEFAULT '0',		    --구매적립금
+    buyDetail_noname1   varchar2(255),          		--여분필드1
+    buyDetail_noname2   varchar2(255)           		--여분필드2  
+);
+
+drop sequence buyDetail_seq;
+create sequence buyDetail_seq; 
+
+select * from buyDetail;
+
+insert into buyDetail(buyDetail_idx, buy_idx, goods_idx, buyDetail_pcs, buyDetail_subPrice, buyDetail_point, 
+buyDetail_noname1, buyDetail_noname2)
+values (buyDetail_seq.nextval, 1, 1, '2', 10000, '1', '','');
+
+commit;
 
 --배너
 drop table banner;
